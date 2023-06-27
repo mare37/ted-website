@@ -8,13 +8,18 @@ This Repo will be the central point of managing all the tools built & managed by
 
 ## Project List
 
+
 [FrontEnd Service] (url) - The services Communicating with the Backend Services
+
 [Backend Service] (url) - The services Communicating with the Database
+
 [Database System] (url) - The Scripts for running the database
+
 [Configs _] (url) - Configurations For the System
 
 
 ## Why We Chose Next js For This Project
+
 
 1 Improved Visibility in Search Engines: Next.js supports server-side rendering (SSR), enabling       better indexing by search engines and improving visibility in search results.
 
@@ -27,13 +32,17 @@ This Repo will be the central point of managing all the tools built & managed by
 git clone https://github.com/mare37/ted-website.git
 ```
 
-Enter ted-website folder
+Enter ted-website folder:
 
 ```bash
 cd ted-website
 ```
 
-First, run the development server:
+```bash
+npm or yarn install 
+```
+
+Run the development server:
 
 ```bash
 npm run dev
