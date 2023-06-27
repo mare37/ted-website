@@ -1,6 +1,37 @@
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+## TED WEBSITE REPO
+
+This Repo will be the central point of managing all the tools built & managed by the TED-WEBSITE TEAM.
+
+
+
+## Project List
+
+[FrontEnd Service] (url) - The services Communicating with the Backend Services
+[Backend Service] (url) - The services Communicating with the Database
+[Database System] (url) - The Scripts for running the database
+[Configs _] (url) - Configurations For the System
+
+
+## Why We Chose Next js For This Project
+
+1 Improved Visibility in Search Engines: Next.js supports server-side rendering (SSR), enabling       better indexing by search engines and improving visibility in search results.
+
+2 Enhanced User Experience: Next.js ensures fast loading and high page performance, resulting in an excellent user experience and increased user engagement.
+
+
+## To View Project On local computer
+
+```bash
+git clone https://github.com/mare37/ted-website.git
+```
+
+Enter ted-website folder
+
+```bash
+cd ted-website
+```
 
 First, run the development server:
 
@@ -16,7 +47,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
 ## Learn More
 
