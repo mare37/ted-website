@@ -105,3 +105,20 @@ a {
     color-scheme: dark;
   }
 }*/
+
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body{
+  margin: 0 auto;
+  background-color:  rgb(246, 244, 237);
+
+}
+
+a{
+  text-decoration: none;
+}

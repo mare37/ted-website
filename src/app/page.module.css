@@ -25,3 +25,15 @@
     transform: rotate(0deg);
   }
 }*/
+
+
+.container{
+  max-width: 1366;
+  min-height: 100vh;
+}
+
+.home{
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+}
