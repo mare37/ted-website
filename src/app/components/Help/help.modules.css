@@ -1,0 +1,83 @@
+.help-top{
+    padding: 20px;
+    background-color: rgb(235, 232, 232);
+    margin-top: 70px;
+    height: 500px;
+}
+
+.help-top h1{
+    color:  rgb(147, 147, 46)  ;
+    margin-bottom: 15px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.help-top p{
+    color:  rgb(132, 132, 76)  ;
+    line-height: 29px;
+    text-align: center;
+}
+
+
+
+
+.help-bottom{
+
+overflow-x: scroll;
+margin-top: -150px;
+}
+
+
+.help-bottom-scroll{
+    width: max-content;
+    display: flex;
+    flex-flow: row;
+   
+}
+
+
+.help-bottom-scroll div{
+
+    margin: 25px;
+    color: white;
+    width: 290px;
+    background-color:rgb(226, 123, 123) ;
+    padding: 45px 15px;
+    border-radius: 7px;
+   
+}
+
+.help-bottom-scroll h1{
+    font-size: 20px;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom-color: white;
+    border-bottom: solid;
+    padding-bottom: 20px;
+    border-bottom-width: 1px;
+
+}
+
+.help-bottom-scroll p{
+   line-height: 28px;
+   text-align: center;
+
+
+}
+
+.button-section{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top:30px;
+}
+
+.button-section button{
+    padding: 10px;
+    border-radius: 15px;
+    border-color: rgb(147, 147, 46);
+    color: rgb(147, 147, 46);
+    width: 50%;
+    border: none;
+}
+

@@ -1,0 +1,68 @@
+.footer{
+
+    margin-top: 100px;
+    height: 800px;
+    background-color:rgb(91 91 29) ;
+    color: white;
+}
+
+
+
+.footer form{
+
+    height: 50%;
+    display:flex;
+    flex-direction: column;
+    padding: 20px;
+   justify-content: center;
+
+}
+
+.footer form input{
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    border: none;
+    width: 80%;
+}
+
+
+.footer form p{
+
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.footer div{
+
+    padding: 20px;
+   
+}
+
+.footer div h2{
+    margin-bottom: 30px;
+    font-size:18px;
+}
+
+.footer button {
+    width:50%;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: rgb(121, 121, 172);
+    color: white;
+    border: none;
+
+}
+
+.footer img{
+    height: 45px;
+    margin: 10px;
+}
+
+.footer section{
+    display: flex;
+    flex-direction: row;
+    justify-content:flex-start;
+    margin-left: 6px;
+}
+ 

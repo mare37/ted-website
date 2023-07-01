@@ -1,0 +1,16 @@
+import "./help.modules.css"
+
+function HelpTop(){
+
+    return <div className="help-top"  >
+
+        <div>
+            <h1>Lorem ipsum dolor sit amet, consectetuer </h1>
+            <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium </p>
+           
+        </div>
+
+    </div>
+}
+
+export default HelpTop;

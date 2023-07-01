@@ -1,0 +1,61 @@
+
+
+.where-we-work{
+  width: 100vw;
+  overflow-x: scroll;
+
+
+  margin-top: -50px;
+  
+ 
+}
+
+.where-we-work img{
+
+    width: 100%;
+    
+   
+  }
+
+
+  .where-we-work-scrol-container{
+
+    overflow-x: scroll;
+  }
+
+.where-we-work-scroll{
+   width: max-content;
+   display: flex;
+   flex-flow: row;
+  
+    overflow-x: scroll;
+
+
+}
+
+
+.where-we-work-scroll div{
+
+    width: 290px;
+    padding: 20px;
+
+    background-color: white;
+    margin: 10px;
+    border-radius: 5px;
+    
+    
+}
+
+.where-we-work-scroll div h1{
+
+    color: rgb(147, 147, 46);
+    margin-bottom: 15px;
+   
+}
+
+.where-we-work-scroll div p{
+
+    color: rgb(132, 132, 76);
+    line-height: 29px;
+   
+}
