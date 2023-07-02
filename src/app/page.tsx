@@ -6,7 +6,7 @@ import HowWedoit from './components/How-we-do-it/How-we-do-it'
 import WhereWeWork from './components/WhereWeWork/where-we-work'
 import HelpTop from './components/Help/help-top'
 import HelpBottom from './components/Help/help-bottom'
-import Footer from './components/Footer/Footer'
+import WhereWeWorkTop from './components/WhereWeWork/where-we-work-top'
 
 export default function Home() {
   return (
@@ -14,17 +14,7 @@ export default function Home() {
     <Hero/>
     <WhatWeDo />
     <HowWedoit/>
-
-    <div  className='image-container'   >
-      <div  className='image'  >
-
-        <h2>Where We Work</h2>
-
-
-      </div>
-
-
-</div>
+    <WhereWeWorkTop/>
     <WhereWeWork/>
     <HelpTop/>
     <HelpBottom/>

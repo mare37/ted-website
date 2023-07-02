@@ -40,3 +40,22 @@
 
 }
 
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+    .how-we-do-it{
+
+       padding:50px;
+       margin-top: 200px;
+    }
+
+
+    .how-we-do-it div{
+        margin-bottom: 100px;
+
+     
+     }
+
+
+}
+

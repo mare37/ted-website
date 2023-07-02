@@ -56,13 +56,49 @@
 
 .footer img{
     height: 45px;
-    margin: 10px;
+    margin-right: 10px;
+   
 }
 
 .footer section{
     display: flex;
     flex-direction: row;
     justify-content:flex-start;
-    margin-left: 6px;
+    margin-top: 40px;
+   
+}
+
+
+
+@media (min-width: 768px) and (max-width: 850px){
+   
+    .footer{
+
+       display: flex;
+       flex-direction:row-reverse;
+       height: 500px;
+       padding: 50px;
+    }
+    
+
+
+}
+
+
+@media (min-width: 850px) and (max-width: 1024px){
+   
+    .footer{
+
+        display: flex;
+        flex-direction:row-reverse;
+        justify-content: center;
+        height: 500px;
+        padding: 50px;
+    }
+    
+
+    
+
+
 }
  

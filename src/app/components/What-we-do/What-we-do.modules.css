@@ -72,3 +72,75 @@
     color:  rgb(147, 147, 46)  ;
     width: 50%;
 }
+
+
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .text-wrapper{
+        padding: 40px 90px;
+    }
+
+
+    .text-wrapper h2{
+       
+        color: rgb(95, 95, 35);
+        font-size: 15px;
+    }
+    
+
+    .text-wrapper p{
+        line-height: 30px;
+        font-size: 26px;
+       
+    }
+
+    .what-we-do img {
+
+        filter: brightness(50%);
+       
+        }
+
+
+        .our-goals{
+            margin-top: -70%;
+            padding: 50px;
+            z-index: 5;
+           } 
+
+
+           .our-goals p{
+            color: white;
+           } 
+
+           .our-goals h1{
+            color: white;
+            font-size: 38px;
+          
+           }
+
+           .our-goals h2{
+            color: white;
+            font-size: 15px;
+           }
+
+           .our-goals div  {
+              display: block;
+             }
+
+           .our-goals button  {
+          width: 30%;
+          background-color: transparent;
+         border-color: white;
+         color: white;
+         border-width: 3px;
+           }
+
+
+
+
+
+           
+        
+  
+  }

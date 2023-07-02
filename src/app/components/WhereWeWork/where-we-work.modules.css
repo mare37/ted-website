@@ -2,6 +2,8 @@
 
 .where-we-work{
   width: 100vw;
+  display: flex;
+  flex-direction: column;
   overflow-x: scroll;
 
 
@@ -58,4 +60,70 @@
     color: rgb(132, 132, 76);
     line-height: 29px;
    
+}
+
+
+
+.image{
+  width: 100%;
+}
+
+.image-container{
+
+  height: 40vh;
+
+ 
+
+
+}
+
+
+.image{
+
+  background-image: url("../../assets/men-digging.jpg");
+  background-size: cover;
+  position: relative;
+z-index: -5;
+  height: 100%;
+ 
+
+}
+
+.image:after{
+
+  content: "";
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background-color: black;
+    opacity: 0.3;
+    z-index: -1;
+ 
+
+}
+
+.image h2{
+  position: absolute;
+  top: 65%;
+  left: 20%;
+  color:white;
+ 
+}
+
+
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+
+  .image h2{
+   font-size: 33px;
+   top:75%;
+   
+  }
+  
+
+
 }

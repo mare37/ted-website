@@ -1,6 +1,6 @@
 .help-top{
     padding: 20px;
-    background-color: rgb(235, 232, 232);
+    background-color: #e2dede;
     margin-top: 70px;
     height: 500px;
 }
@@ -79,5 +79,19 @@ margin-top: -150px;
     color: rgb(147, 147, 46);
     width: 50%;
     border: none;
+}
+
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+    .help-bottom{
+
+      
+        margin-top: -350px;
+        }
+
+
+
 }
 

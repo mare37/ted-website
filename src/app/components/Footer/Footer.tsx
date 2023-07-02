@@ -18,17 +18,13 @@ function Footer (){
 
     <div>
 
-        <h2>CONTACT</h2>
+        <h2>CONTACT US</h2>
         <h2>TERMS AND CONDITIONS</h2>
         <h2>PRIVATE POLICY</h2>
         <p>2023 Ted Reaforentration Projects All Rights Reserved</p>
 
 
-
-
-    </div>
-
-    <section>
+        <section>
         <a href="https://facebook.com"    target={"_blank"} rel="noreferrer"
            >  <img src="./f.png" alt="img"/></a> 
 
@@ -42,6 +38,13 @@ function Footer (){
            >  <img src="./y.png" alt="img"/></a>   
     
     </section>
+
+
+
+
+    </div>
+
+   
 
 
 
