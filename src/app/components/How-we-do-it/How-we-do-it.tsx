@@ -4,15 +4,20 @@ function HowWedoit() {
 
 
    return <div   className="how-we-do-it"   >
-
+              <h1>HOW WE DO IT</h1>
       <div >
-         <h1>HOW WE DO IT</h1>
+       
 
-         <h2>Education And Mobilization</h2>
+        <section>
+        <h2>Education And Mobilization</h2>
 
-         <img   src="./men-digging.jpg"     />
+        <img   src="./men-digging.jpg"     />
+
+        </section>
+        
 
          <p>We we mobilize schools to participate in tree planting activities and in return students get to Learn
+            more about the environment and importance of conserving it.We we mobilize schools to participate in tree planting activities and in return students get to Learn
             more about the environment and importance of conserving it.
          </p>
 

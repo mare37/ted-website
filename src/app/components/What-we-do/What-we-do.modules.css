@@ -75,7 +75,7 @@
 
 
 
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (min-width: 768px) and (max-width: 1023px) {
 
     .text-wrapper{
         padding: 40px 90px;
@@ -98,12 +98,14 @@
     .what-we-do img {
 
         filter: brightness(50%);
+        position: relative;
+        z-index: -8;
        
         }
 
 
         .our-goals{
-            margin-top: -70%;
+            margin-top: -72%;
             padding: 50px;
             z-index: 5;
            } 
@@ -143,4 +145,175 @@
            
         
   
+  }
+
+
+
+  @media (min-width: 1024px) {
+    .what-we-do{
+  
+       
+       
+        
+       
+       
+    }
+
+    .our-goals-container{
+
+        width: 100vw;
+        height: 100vh;
+    }
+
+
+
+
+    .text-wrapper{
+       padding: 100px 200px;
+    
+    }
+
+    .text-wrapper h2{
+        font-size: 18px;
+
+        color:  rgb(97, 97, 36);
+     }
+
+
+     .what-we-do img {
+        position: relative;
+        z-index: -8;
+
+        filter: brightness(50%);
+        height: calc(100vh - 110px)
+    
+       
+        }
+
+        .our-goals{
+            margin-top: -50%;
+            padding:  0px 100px;
+            z-index: 5;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+           
+           } 
+
+
+
+
+           .our-goals p{
+            color: white;
+           } 
+
+           .our-goals h1{
+            color: white;
+            font-size: 32px;
+          
+           }
+
+           .our-goals h2{
+            color: rgb(227 227 28);
+            font-size: 15px;
+           }
+
+           .our-goals div  {
+              display: block;
+             }
+
+           .our-goals button  {
+          width: 30%;
+          background-color: transparent;
+         border-color: white;
+         color: white;
+         border-width: 3px;
+           }
+
+
+  }
+
+
+  @media (min-width: 1200px){
+
+    .our-goals-container{
+
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-between;
+        padding: 0 200px;
+    }
+
+    .our-goals{
+
+        margin-top: 0;
+
+        justify-content:flex-start;
+      
+       padding: 0px;
+
+       
+      
+       
+       } 
+
+
+       .our-goals p{
+        color:rgb(132, 132, 76);
+        font-size: 18px;
+       } 
+
+       .our-goals h1{
+        color: rgb(213, 96, 96);
+        font-size: 4rem;
+      
+       }
+
+       .our-goals h2{
+       
+        font-size: 15px;
+        color:rgb(97, 97, 36)   ;
+       }
+
+       
+
+       .our-goals button  {
+        width: 200px;
+        padding: 12px;
+        border-radius: 20px;
+        background-color: #335f68    ;
+        color:  rgb(246, 244, 237);
+        font-weight: 700;
+        border: none;
+      
+       }
+
+       .image-container{
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+       }
+
+
+       .what-we-do img {
+
+      /*  width: 450px;
+        height: 350px;
+        margin: 0 0;*/
+        width: 600px;
+        height: 380px;
+        margin: 40px 0;
+
+
+        filter: brightness(100%);
+
+       
+       
+    
+       
+        }
+
+
+
   }

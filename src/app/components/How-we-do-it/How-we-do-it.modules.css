@@ -59,3 +59,45 @@
 
 }
 
+
+@media (min-width: 1024px){
+
+    .how-we-do-it{
+
+       
+        margin-top: 600px;
+     }
+
+
+}
+
+
+@media (min-width: 1200px){
+
+    .how-we-do-it{
+
+       
+        margin-top: 0px;
+
+        padding: 0 100px;
+     }
+
+
+     .how-we-do-it div{
+
+        display: flex;
+        flex-direction: row;
+     
+     }
+
+
+     .how-we-do-it img{
+        width: 400px;
+        margin-bottom: 20px;
+    }
+     
+
+
+}
+
+

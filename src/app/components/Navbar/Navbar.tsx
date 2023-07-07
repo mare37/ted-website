@@ -38,6 +38,7 @@ function Navbar (){
 
     const [clicked, setClicked] = useState(false);
     const [pathHome, setPathHome] = useState(false);
+    let [headerScrollClass, setHeaderScrollClass] = useState(false);
 
     
     
@@ -49,6 +50,26 @@ function Navbar (){
       //  console.log(pathname);
        // setPathHome(true)  
     }
+
+
+    const changeBackground = () => {
+        if (window.scrollY > 100) {
+          setHeaderScrollClass(true);
+        } else {
+          console.log(window.scrollY);
+          setHeaderScrollClass(false);
+        }
+      };
+    
+      useEffect(() => {
+        window.addEventListener("scroll", changeBackground);
+        return () => {
+          window.removeEventListener("scroll", changeBackground);
+        };
+      }, [headerScrollClass]);
+
+
+
 
     useEffect(()=>{
 
@@ -76,8 +97,8 @@ function Navbar (){
 
 
 
-        <div className="navbar"  >
-
+        <div className={headerScrollClass? "navbar scroll": "navbar"}  >
+ 
             
 
             <div className={"navbar-links"}  >
@@ -87,7 +108,7 @@ function Navbar (){
                 <div className="navbar-donate-now"  > <button>Donate Now</button> </div>
 
                 {links.map((link)=>{
-                    return <Link      onClick={()=>{setClicked(false)}}   className="navbarlink"  key={link.id}  href={link.href}  >{link.link}</Link>
+                    return <Link      onClick={()=>{setClicked(false)}}   className={headerScrollClass? "navbarlink scroll": "navbarlink"}  key={link.id}  href={link.href}  >{link.link}</Link>
 
                 })}
 
