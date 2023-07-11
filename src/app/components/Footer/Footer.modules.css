@@ -45,10 +45,10 @@
 }
 
 .footer button {
-    width:50%;
+    width:70%;
     border-radius: 15px;
     padding: 10px;
-    background-color: rgb(121, 121, 172);
+    background-color: #335f68;
     color: white;
     border: none;
 
@@ -98,6 +98,26 @@
     
 
     
+
+
+}
+
+@media (min-width: 1200px){
+
+    .footer{
+
+        margin-top: 100px;
+        height: 550px;
+        background-color:rgb(91 91 29) ;
+        color: white;
+
+
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: space-around;
+        align-items: center;
+    }
+
 
 
 }
