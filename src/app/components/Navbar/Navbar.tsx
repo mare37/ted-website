@@ -9,22 +9,22 @@ const links = [
     {
         id:1,
         href: "/save-the-environment",
-        link: "Save The Environment"
+        link: "Our Work"
     },
     {
         id:2,
         href: "/get-involved",
-        link: "Get Involved"
+        link: "Why Reafforestartion"
     },
     {
         id:3,
         href: "/blog",
-        link: "Blog"
+        link: "Journal"
     },
     {
         id:4,
         href: "/about",
-        link: "About"
+        link: "Our Impact In the Field"
     },
     {
         id:5,
@@ -45,20 +45,31 @@ function Navbar (){
 
     const pathname  = usePathname();
 
-    if( pathname === "/"){
+    if( pathname === "/get-involved"){
 
-      //  console.log(pathname);
+       console.log(pathname);
        // setPathHome(true)  
     }
 
 
     const changeBackground = () => {
-        if (window.scrollY > 100) {
-          setHeaderScrollClass(true);
-        } else {
-          console.log(window.scrollY);
-          setHeaderScrollClass(false);
-        }
+
+        if( pathname === "/"){
+
+            if (window.scrollY > 100) {
+                setHeaderScrollClass(true);
+              } else {
+                console.log(window.scrollY);
+                setHeaderScrollClass(false);
+              }
+         }else{
+
+            setHeaderScrollClass(true);
+         }
+
+
+
+       
       };
     
       useEffect(() => {

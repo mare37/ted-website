@@ -22,7 +22,7 @@
 .text-wrapper p{
     line-height: 30px;
     font-size: 22px;
-    color: rgb(213, 96, 96);
+    color:rgba(188, 118, 92);
 }
 
   .what-we-do img {
@@ -264,7 +264,7 @@
        } 
 
        .our-goals h1{
-        color: rgb(213, 96, 96);
+        color:rgba(188, 118, 92);
         font-size: 4rem;
       
        }
@@ -313,6 +313,21 @@
     
        
         }
+
+
+
+  }
+
+
+
+  @media (min-width: 1400px){
+
+    .what-we-do{
+  
+        
+       
+       
+    }
 
 
 

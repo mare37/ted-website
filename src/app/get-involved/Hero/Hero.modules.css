@@ -1,4 +1,4 @@
-.hero{
+.hero2{
     width: 100vw;
     height:  60vh;
     display: flex;
@@ -15,7 +15,7 @@
     margin: 0;
 }
 
-.hero-container{
+.hero-container2{
     background-image: url("../../assets/hero-pic.jpg");
     background-size: cover;
     position: relative;
@@ -27,7 +27,7 @@
 }
 
 
-.hero-container p{
+.hero-container2 p{
 
     top:50%;
     position: absolute;
@@ -37,7 +37,7 @@
     line-height: 35px;
 }
 
-.hero-container::after {
+.hero-container2::after {
     content: "";
     position: absolute;
     left: 0;
@@ -54,7 +54,7 @@
 
   @media (min-width: 768px) and (max-width: 1020px) {
 
-    .hero-container p{
+    .hero-container2 p{
         font-size: 40px;
         line-height: 50px;
         padding:30px;
@@ -65,13 +65,24 @@
 
   @media (min-width: 1024px){
 
-    .hero{
+    .hero2{
         
-        height:  97vh;
+        height:  100vh;
         
         
     
     }
+
+    .hero-container2 p{
+
+        top:65%;
+        left: 5%;
+        width: 70%;
+        font-size: 52px;
+        line-height: 66px;
+       
+    }
+    
 
 
 

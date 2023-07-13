@@ -107,7 +107,7 @@ z-index: -5;
 .image h2{
   position: absolute;
   top: 65%;
-  left: 20%;
+  left: 5%;
   color:white;
  
 }
@@ -124,6 +124,46 @@ z-index: -5;
    
   }
   
+
+
+}
+
+
+@media (min-width: 1200px){
+
+ 
+
+  .image-container{
+
+    height: 100vh;
+  
+   
+  
+  
+  }
+
+  .image h2{
+    
+    top: 85%;
+    
+   
+   
+  }
+
+
+  .where-we-work-scroll{
+    padding-left: 40px;
+    padding-right: 40px;
+    min-width: 100vw;
+    justify-content:space-around;
+ 
+ 
+ }
+
+ .where-we-work-scroll div{
+
+     width: 320px;
+ }
 
 
 }

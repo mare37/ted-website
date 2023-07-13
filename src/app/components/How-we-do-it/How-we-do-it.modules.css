@@ -12,7 +12,7 @@
 
 .how-we-do-it h1{
 
-    color: rgb(213, 96, 96);
+    color:rgba(188, 118, 92);
     margin-bottom: 35px;
     font-size: 16px;
 
@@ -20,7 +20,7 @@
 
 .how-we-do-it h2{
 
-    color: rgb(213, 96, 96);
+    color:rgba(188, 118, 92);
     font-size: 26px;
     margin-bottom: 20px;
 
@@ -72,14 +72,19 @@
 }
 
 
-@media (min-width: 1200px){
+@media (min-width: 1400px){
 
     .how-we-do-it{
 
        
         margin-top: 0px;
+        margin-bottom: 50px;
+        padding-left: 200px;
+        padding-right: 190px;
+     }
 
-        padding: 0 100px;
+     .how-we-do-it h1{
+        color:   rgb(97, 97, 36) ;
      }
 
 
@@ -87,13 +92,29 @@
 
         display: flex;
         flex-direction: row;
+        margin-bottom: 80px;
      
      }
 
 
      .how-we-do-it img{
-        width: 400px;
+        width: 350px;
         margin-bottom: 20px;
+    }
+
+    .how-we-do-it p {
+
+    color: rgb(147, 147, 46);
+    font-size: 16px;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+    font-size: 26px;
+    margin-left: 90px;
+    text-align:left;
+    margin-top: 39px;
     }
      
 
