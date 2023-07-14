@@ -95,3 +95,65 @@ margin-top: -150px;
 
 }
 
+
+@media (min-width: 1400px){
+
+    .help-top {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+     
+    }
+
+
+    .help-top div{
+        margin-top: 50px;
+        width: 50%;
+     
+    }
+
+
+    .help-top h1{
+        
+        font-size: 28px;
+        
+    }
+    
+    .help-top p{
+        font-size: 20px;
+        
+    }
+
+
+    .help-bottom{
+
+        min-width: 100vw;
+        margin-top: -250px;
+        }
+        
+        
+        .help-bottom-scroll{
+            display: flex;
+           width: 100%;
+            justify-content: space-around;
+            flex-direction: row;
+           
+        }
+
+        .help-bottom-scroll div{
+
+            width: 350px;
+          
+           
+        }
+
+        .help-bottom{
+
+            overflow-x:hidden;
+            }
+            
+
+    
+
+}
+
