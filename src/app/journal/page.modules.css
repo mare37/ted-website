@@ -1,0 +1,22 @@
+.journal{
+
+  width: 100vw;
+   padding-top: 70px;
+}
+
+
+@media (min-width: 1024px){
+
+    .journal{
+       padding-top: 150px;
+       padding-left: 10%;
+       padding-right: 10%;
+
+        display: grid;
+         grid-template-columns: 1fr 1fr;
+       
+      }
+      
+
+
+}

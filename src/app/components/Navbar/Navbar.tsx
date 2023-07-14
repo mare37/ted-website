@@ -18,8 +18,8 @@ const links = [
     },
     {
         id:3,
-        href: "/blog",
-        link: "Blog"
+        href: "/journal",
+        link: "Journal"
     },
     {
         id:4,
