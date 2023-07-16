@@ -1,0 +1,323 @@
+.our-work{
+
+    padding-top: 90px;
+}
+
+
+
+.our-work-hero{
+
+
+    height: 50vh;
+    background-color: rgb(147, 147, 46);
+
+    display: flex;
+    flex-direction: column;
+  justify-content:flex-end;
+  padding: 20px;
+
+
+
+}
+
+
+.our-work-hero  p{
+
+    font-size: 28px;
+
+   color: white;
+    
+
+
+}
+
+
+.our-work-overview{
+
+    padding: 20px;
+
+}
+
+
+.our-work-overview h1{
+
+    
+    margin-bottom: 15px;
+
+}
+
+.our-work-overview p{
+
+    line-height:27px;
+
+}
+
+
+.our-work-team{
+    padding: 20px;
+}
+
+.our-work-individual{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.our-work-individual-pic{
+
+       background-image: url("../assets/men-digging.jpg");
+    background-size:cover;
+    position: relative;
+    height: 150px; 
+    width:150px;
+    border-radius:50%;
+    z-index: -2;
+
+   
+
+
+}
+
+
+
+.our-work-individual-text{
+
+    height: 200px;
+    width: 100%;
+    border: solid;
+    margin-top: -10%;
+    z-index: -9;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    padding: 10px;
+    border-width: 1px;
+    border-color: rgb(190 185 185);
+}
+
+
+
+.our-work-individual-text h2{
+
+    font-size: 18px;
+    color: rgba(90,100,77)  ;
+    margin-bottom: 10px;
+}
+
+
+
+.our-work-individual-text p{
+    color: rgb(134 114 114)  ;
+}
+
+
+.our-current-projects{
+  
+    margin-top: 40px;
+}
+
+.our-current-projects-heading{
+
+    margin-bottom: 15px;
+    padding: 20px;
+    color:rgb(117, 117, 21) ;
+}
+
+
+.our-current-projects-item{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   background-color: white;
+   padding: 20px;
+   margin-top: 20px;
+   
+
+}
+
+
+.our-current-projects-item-text{
+
+    width: 65%;
+
+}
+
+.our-current-projects-item-pic {
+    width: 30%;
+}
+
+
+.our-current-projects-item-pic figure{
+
+    background-image: url("../assets/men-digging.jpg");
+    background-size:cover;
+    position: relative;
+    height: 90px; 
+    width:100%;
+    
+
+
+}
+
+.our-current-projects-item-text h1{
+
+    margin-bottom: 10px;
+    color:rgb(117, 117, 21) ;
+
+
+}
+
+
+.our-current-projects-item-text p{
+
+    line-height: 25px;
+    margin-bottom: 15px;
+
+
+}
+
+.our-current-projects-item-text h3{
+
+  
+    margin-bottom: 15px;
+    color:rgb(117, 117, 21)  ;
+
+
+}
+
+.our-current-projects-item-text span{
+
+  
+    
+    color:rgb(117, 117, 21)  ;
+    font-weight: 700;
+
+
+}
+
+
+
+@media (min-width: 768px){
+
+    .our-work-hero{
+        height: 25vh;
+
+    }
+
+    .our-work-hero p {
+        font-size: 35px;
+        margin-bottom: 30px;
+        
+    }
+
+
+    .our-work-overview{
+
+        padding: 35px;
+    
+    }
+
+
+    .our-work-overview h1{
+
+    
+        margin-bottom: 25px;
+    
+    }
+
+    .our-work-team {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    
+    }
+
+    .our-work-individual {
+       margin: 10px;
+    }
+
+    .our-work-individual-text {
+      
+        width: 300px;
+       
+    }
+
+    .our-current-projects-heading {
+        
+        padding: 30px;
+        
+    }
+
+
+    .our-current-projects-item {
+        
+        padding: 20px;
+        margin: 30px;
+    }
+
+
+    .our-current-projects-item-pic figure {
+        height: 190px;
+       
+    }
+
+   
+
+
+}
+
+
+@media (min-width: 1024px){
+
+
+    .our-work-hero {
+        height: 50vh;
+    }
+
+
+}
+
+
+@media (min-width: 1200px){
+
+    .our-work-hero p {
+        font-size: 43px;
+        margin-bottom: 50px;
+        margin-left: 30px;
+    }
+
+    .our-work-overview {
+        padding: 100px 15%;
+    }
+
+    .our-work-individual-text {
+        height: 150px;
+    }
+
+
+    .our-current-projects-item {
+        padding: 20px;
+        margin: 30px;
+        width: 70%;
+    }
+
+    .our-current-projects-heading {
+       
+        padding: 0 15%;
+        margin-bottom: 50px;
+    }
+
+    .our-current-projects-container{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+
+
+
+}
+
