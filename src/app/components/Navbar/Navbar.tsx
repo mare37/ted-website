@@ -18,7 +18,7 @@ const links = [
     },
     {
         id:3,
-        href: "/blog",
+        href: "/journal",
         link: "Journal"
     },
     {
