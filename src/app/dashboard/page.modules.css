@@ -1,0 +1,25 @@
+.dashboard{
+
+    overflow: hidden;
+   height: 100%;
+   position: relative;
+   
+   
+}
+
+
+@media (min-width: 1024px){
+   
+    
+    .dashboard{
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      
+       
+       
+    }
+
+
+   
+} 

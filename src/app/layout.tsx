@@ -1,7 +1,14 @@
+'use client'
+
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Navbar from './components/Navbar/Navbar'
 import Footer from './components/Footer/Footer'
+import { usePathname } from 'next/navigation'
+import { GlobalContextProvider } from './context/store'
+import { useGlobalContext } from './context/store'
+
+
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -15,13 +22,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode
 }) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>
-        <Navbar/>
-        {children}
-        <Footer/>
-        </body>
-    </html>
-  )
+
+ 
+
+   const path  =  usePathname ();
+
+
+    if( path != '/dashboard'){
+      return (
+        <html lang="en">
+       <body     className={inter.className}    >
+            <GlobalContextProvider>
+           
+              <Navbar/>
+              {children}
+              <Footer/>
+          
+            </GlobalContextProvider>
+            </body>  
+           
+        </html>
+      )
+    }else{
+
+      return (
+        <html lang="en">
+          <body className={inter.className}>
+            <GlobalContextProvider>
+            {children}
+            </GlobalContextProvider>
+           
+            </body>
+        </html>
+      )
+
+    }
+ 
 }
