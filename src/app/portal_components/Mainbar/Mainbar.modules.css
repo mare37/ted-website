@@ -1,0 +1,208 @@
+.mainbar{
+
+  
+    width: 100%;
+    z-index: 4;
+    top: 0;
+    z-index: 3;
+    
+
+
+}
+
+
+.mainbar.after{
+
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4) 0 0);
+    opacity: 0.4;
+    
+
+
+}
+
+
+.mainbar.shift-mainbar{
+
+ width:100vw;
+ position: absolute;
+
+}
+
+
+
+.mainbar-nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 10px;
+}
+
+.mainbar-nav div{
+   display: flex;
+   flex-direction: column;
+   align-items: flex-end;
+
+}
+
+.mainbar-nav div p{
+    visibility: hidden;
+ 
+ }
+
+
+ .mainbar-nav-humburger{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+ }
+
+
+
+
+.mainbar-nav  img{
+
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+
+}
+
+
+
+.mainbar-body{
+    padding: 20px;
+}
+
+
+.mainbar-body h2{
+   margin-bottom: 30px;
+
+}
+
+.mainbar-item{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 40px 20px;
+    border-radius: 15px;
+    margin-bottom: 15px;
+
+
+    background-color:#b5ced3;
+
+}
+
+.mainbar-item img{
+    height: 40px;
+}
+
+
+.mainbar-latestjournals-heading{
+
+    margin-top: 70px;
+    margin-bottom: 30px;
+}
+
+.mainbar-journalItem {
+
+    display: flex;
+    flex-direction: row;
+    margin-bottom: 20px;
+
+
+}
+
+.mainbar-journalItem-text{
+
+    padding: 10px 14px;
+}
+
+.mainbar-journalItem-text h3{
+
+   margin-bottom: 12px;
+}
+
+
+
+
+
+
+
+.mainbar-journalItem img{
+
+    width: 150px;
+    border-radius: 15px;
+
+
+}
+
+
+
+@media (min-width: 768px){
+
+
+
+    .mainbar-nav{
+       
+        padding: 20px 35px;
+    }
+
+
+    .mainbar-nav div {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+       
+    }
+
+    .mainbar-nav div p{
+        visibility: visible;
+        margin-left: 10px;
+     
+     }
+    
+
+
+
+    .mainbar-body{
+        padding: 35px;
+    }
+
+
+    .mainbar-item-container{
+
+
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .mainbar-item{
+        width: 30%;
+    }
+
+   
+} 
+
+
+@media (min-width: 1024px){
+    .mainbar{
+
+  
+        width: 80%;
+        margin-left: 20%;
+       
+        
+    
+    
+    }
+
+
+    .mainbar-nav-humburger{
+        visibility: hidden;
+    }
+
+
+
+}

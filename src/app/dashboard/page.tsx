@@ -1,6 +1,20 @@
+'use client'
+
+import "./page.modules.css"
+import Sidebar from "../portal_components/Sidebar/Sidebar";
+import Mainbar from "../portal_components/Mainbar/Mainbar";
+import { useGlobalContext } from "../context/store";
+
+
 function Dashboard (){
 
-    return <div>Dashboard</div>
+    const {sidebar,setSidebar} = useGlobalContext();
+
+    return <div      className="dashboard">
+        <Sidebar/>
+        <Mainbar/>
+
+    </div>
 }
 
 
