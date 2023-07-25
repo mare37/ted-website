@@ -27,16 +27,78 @@ export default function RootLayout({
 
    const path  =  usePathname ();
 
+   console.log(path);
+   
 
-    if( path != '/dashboard'){
+
+   switch(path){
+
+    case "/dashboard":
       return (
         <html lang="en">
        <body     className={inter.className}    >
             <GlobalContextProvider>
            
-              <Navbar/>
+             
               {children}
-              <Footer/>
+             
+          
+            </GlobalContextProvider>
+            </body>  
+           
+        </html>
+      )
+
+      
+      case "/dashboard/journal":
+        return (
+          <html lang="en">
+         <body     className={inter.className}    >
+              <GlobalContextProvider>
+             
+               
+                {children}
+               
+            
+              </GlobalContextProvider>
+              </body>  
+             
+          </html>
+        )
+
+        default:
+          return (
+            <html lang="en">
+           <body     className={inter.className}    >
+                <GlobalContextProvider>
+               
+                 <Navbar/>
+                  {children}
+                  <Footer/>
+                 
+              
+                </GlobalContextProvider>
+                </body>  
+               
+            </html>
+          )
+        
+
+
+   }
+
+
+
+
+   /* if( path === '/dashboard/journal'){
+      return (
+        <html lang="en">
+       <body     className={inter.className}    >
+            <GlobalContextProvider>
+           
+             
+              {children}
+            
           
             </GlobalContextProvider>
             </body>  
@@ -49,13 +111,15 @@ export default function RootLayout({
         <html lang="en">
           <body className={inter.className}>
             <GlobalContextProvider>
-            {children}
+            <Navbar/>
+              {children}
+              <Footer/>
             </GlobalContextProvider>
            
             </body>
         </html>
       )
 
-    }
+    }*/
  
 }
