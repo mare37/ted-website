@@ -3,7 +3,7 @@
 import "./page.modules.css"
 
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
-import TableItem from "../components/TableItem/TableItem";
+import JournalsTableItem from "../components/JournalsTableItem/JournalsTableItem";
 import { useGlobalContext } from "@/app/context/store";
 
 function Journal (){
@@ -32,9 +32,9 @@ function Journal (){
                     <span className="table-heading-buttons">Delete or Edit</span>
                 </div>
 
-                <TableItem/>
-                <TableItem/>
-                <TableItem/>
+                <JournalsTableItem/>
+                <JournalsTableItem/>
+                <JournalsTableItem/>
               
                 <div className="table-item"  >
          <span className="table-item-no">1</span>

@@ -1,7 +1,7 @@
-import "./TableItem.modules.css"
+import "./JournalsTableItem.modules.css"
 
 
-function TableItem (){
+function JournalsTableItem (){
 
 
 
@@ -14,4 +14,4 @@ function TableItem (){
 
 
 
-export default TableItem
+export default JournalsTableItem;
