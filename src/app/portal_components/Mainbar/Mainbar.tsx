@@ -1,22 +1,21 @@
 
 
-import { useState } from "react"
+import { useState , useEffect} from "react"
 import { useGlobalContext } from "@/app/context/store";
 
 import "./Mainbar.modules.css"
 
-
 function Mainbar(){
-
+   // const [width, setWidth] = useState(0)
+   
+   
     const {sidebar, setSidebar} = useGlobalContext();
 
-    
-    
 
 
-    return <div         className={sidebar ? "mainbar after": "mainbar"}  >
+    return <div         className={sidebar === true ? "mainbar after": "mainbar"}   >
         <div className="mainbar-nav"  >  <img className="mainbar-nav-humburger" onClick={()=>{setSidebar((prev: boolean)=>{ console.log(prev);
-         return !prev})    }}   src="./humburger-icon.png"   />    <div>   <img     src="men-digging.jpg"   />  <p>Welcome Ted</p>   </div>            </div>
+         return true})    }}   src="./humburger-icon.png"   />    <div>   <img     src="men-digging.jpg"   />  <p>Welcome Ted</p>   </div>            </div>
 
 
          <div className="mainbar-body"  >
