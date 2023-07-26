@@ -1,5 +1,6 @@
 'use client'
 
+import Link from "next/link";
 import "./page.modules.css"
 
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
@@ -22,7 +23,7 @@ function Journal (){
          <div className="mainbar-body"  >
             <h2>Journals</h2>
 
-            <button className="create-new-journal"  >Create New Journal</button>
+            <button className="create-new-journal" >   <Link href={"/dashboard/journal/createjournal"}> Create New Journal</Link>    </button>
 
 
             <div className="table-container"   >

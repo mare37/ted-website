@@ -65,6 +65,22 @@ export default function RootLayout({
              
           </html>
         )
+       
+      case "/dashboard/journal/createjournal":
+          return (
+            <html lang="en">
+          <body     className={inter.className}    >
+                <GlobalContextProvider>
+              
+                
+                  {children}
+                
+              
+                </GlobalContextProvider>
+                </body>  
+              
+            </html>
+          )
 
       case "/dashboard/stories":
         return (
