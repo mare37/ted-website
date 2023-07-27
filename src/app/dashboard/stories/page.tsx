@@ -1,6 +1,7 @@
 'use client'
 
 import "./page.modules.css"
+import Link from "next/link";
 
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
 import StoriesTableItem from "../components/StoriesTableItem/StoriesTableItem";
@@ -23,7 +24,7 @@ function Stories (){
          <div className="mainbar-body"  >
             <h2>Stories</h2>
 
-            <button className="create-new-story"  >Create New Story</button>
+            <button    className="create-new-story" > <Link  href={"/dashboard/stories/createstory"}  >Create New Story</Link></button>
 
 
             <div className="table-container"   >

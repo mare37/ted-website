@@ -98,6 +98,22 @@ export default function RootLayout({
           </html>
         )
 
+        case "/dashboard/stories/createstory":
+          return (
+            <html lang="en">
+           <body     className={inter.className}    >
+                <GlobalContextProvider>
+               
+                 
+                  {children}
+                 
+              
+                </GlobalContextProvider>
+                </body>  
+               
+            </html>
+          )
+
 
         default:
           return (
