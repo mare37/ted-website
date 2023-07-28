@@ -116,10 +116,22 @@
 
 .create-story-select select {
     height: 30px;
-    width: 30%
+    width: 50%
 }
 
 .first-option{
 
     display: none;
+}
+
+
+
+@media (min-width: 768px){
+
+    .create-story-select select {
+       
+        width: 30%
+    }
+    
+
 }
