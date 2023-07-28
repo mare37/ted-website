@@ -4,11 +4,14 @@ import { useRef ,useState} from "react";
 import "./page.modules.css"
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
+import PopUp from "../popup/popup";
+import { useGlobalContext } from "@/app/context/store";
 
 
 function CreateJournal() {
 
   const [contentSaved, setContentSaved] = useState(false);
+  const {popup,setPopup} = useGlobalContext();
 
   
 
@@ -61,9 +64,12 @@ function CreateJournal() {
         </div>
 
         <div  className="create-journal-button" >
-         {contentSaved?   <button  >Create Journal</button>: ""   }
+      
+         {contentSaved?   <button onClick={()=>{setPopup(true)}} >Create Journal</button>: ""   }
         </div>
 
+      
+        <PopUp/>  
     
     </div>
 }
