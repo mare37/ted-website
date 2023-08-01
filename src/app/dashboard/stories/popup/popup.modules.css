@@ -41,7 +41,7 @@
 
 .popup-create-story{
     z-index: 7;
-    width: 50%;
+    width: 80%;
     height: 50%;
     background-color: white;
     display: flex;
@@ -53,7 +53,7 @@
 .popup-create-story p{
     color: black;
     margin-bottom: 40px;
-    font-size: 24px;
+    font-size: 18px;
 }
 
 .popup-create-story div{
@@ -77,11 +77,12 @@
 
 
 
-@media (min-width: 1200px){
+@media (min-width: 768px){
 
     .popup-create-story{
        
-        height: 70%;
+        height: 80%;
+        width: 50%;
     }    
 
 

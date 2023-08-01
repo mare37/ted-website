@@ -84,7 +84,7 @@ function CreateStory() {
          {contentSaved?   <button onClick={()=>{setPopup(true)}} >Create Journal</button>: ""   }
         </div>
 
-    <PopUp/>
+        <PopUp/>
     </div>
 }
 
