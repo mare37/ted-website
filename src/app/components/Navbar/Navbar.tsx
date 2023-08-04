@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { usePathname, useSearchParams } from 'next/navigation'
+import image  from "../../assets/humburger-icon.png"
 import  "./Navbar.modules.css"
 
 
@@ -23,7 +24,7 @@ const links = [
     },
     {
         id:4,
-        href: "/about",
+        href: "/impact",
         link: "Our Impact In the Field"
     },
     {
@@ -126,7 +127,7 @@ function Navbar (){
 
             </div>
 
-            <img    onClick={()=>{ setClicked((prev)=>{return !prev}) }} src="./humburger-icon.png"   />
+            <img    onClick={()=>{ setClicked((prev)=>{return !prev}) }} src={image.src}   />
             </div>
        
 
