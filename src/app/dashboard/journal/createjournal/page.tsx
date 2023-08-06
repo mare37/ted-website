@@ -8,19 +8,84 @@ import PopUp from "../popup/popup";
 import { useGlobalContext } from "@/app/context/store";
 
 
+
+export async function POST() {
+  const res = await fetch("http://localhost:3000/api/journals", {
+   method: 'POST',
+   headers: {
+     'Content-Type': 'application/json',
+    
+   },
+   body: JSON.stringify({ time: new Date().toISOString() }),
+ })
+}
+
+
+
+
+
+
 function CreateJournal() {
 
   const [contentSaved, setContentSaved] = useState(false);
   const {popup,setPopup} = useGlobalContext();
+  const [title, setTittle] = useState("");
+  const [content, setContent] = useState("");
+
+
+  const handleClick = ()=>{
+
+    if(title.length != 0 && content.length != 0){
+      setPopup(true)
+    }else{
+
+      console.log("One of the fields is empty");
+      
+
+    }
+
+  }
+
 
   
 
     const editorRef = useRef<TinyMCEEditor | null>(null);
     const log = () => {
-      setContentSaved(true)
-      if (editorRef.current) {
-        console.log(editorRef.current.getContent());
-      }
+
+   /*   if(title.length === 0 || content.length === 0){
+
+        console.log("One of the fields is empty");
+      
+      }else{
+  
+      }*/
+
+      
+        if (editorRef.current) {
+          let text = editorRef.current.getContent();
+          setContent(text);
+
+
+            if(title.length === 0 || content.length === 0){
+
+                  console.log("One of the fields is empty");
+                
+                }else{
+                  setContentSaved(true)
+                  console.log(text);
+                }
+
+
+
+
+          
+        }
+        
+  
+     
+
+
+    
      
     }
 
@@ -28,17 +93,27 @@ function CreateJournal() {
     console.log(contentSaved);
     
 
+    //console.log(content);
+
+    const onChange = (e:any)=>{
+    //  console.log(e);
+      
+     // setContent(e)
+
+    }
+    
 
     return <div  className="create-journal"  >
 
         <div className="create-journal-title" >
-            <input placeholder="Title" />
+            <input placeholder="Title"   onChange={(e)=>{setTittle(e.target.value)}}          />
         </div>
 
         <div>
         <Editor
          onInit={(evt, editor) => editorRef.current = editor}
          initialValue="<p>Welcome Mr Ted!! Happy writing</p>"
+         onEditorChange={onChange}
          
          init={{
            height: 350,
@@ -69,7 +144,8 @@ function CreateJournal() {
         </div>
 
       
-        <PopUp/>  
+        <PopUp title={title}
+                content={content} />  
     
     </div>
 }
