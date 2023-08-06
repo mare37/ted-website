@@ -1,7 +1,15 @@
-
 import "./JournalItem.modules.css"
+import { ObjectId } from "mongoose";
 
-function JournalItem(){
+interface Journal {
+    id: ObjectId,
+    title: string;
+    journal: string;
+   
+  }
+
+
+function JournalItem(props: Journal ){
 
     return <div className="journal-item"  >
 
@@ -15,11 +23,9 @@ function JournalItem(){
 
         <h2>June 7, 2023 </h2>
 
-  <h1>Lorem ipsum
-    dolor sit amet, consectetuer adipiscing  </h1>
+  <h1>{props.title}</h1>
 
- <p> LOREM IPSUM
-      dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo  </p>  
+ <p>{props.journal} </p>  
 
   <p>Continue reading</p> 
 
