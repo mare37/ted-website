@@ -54,7 +54,7 @@ function PopUp ({title, content}: Journal) {
          'Content-Type': 'application/json',
         
        },
-       body: JSON.stringify({ time: new Date().toISOString(),title:title,content:content }),
+       body: JSON.stringify({ method:"POST",title:title,content:content,id:"" }),
      })
     
         const response =  await res.json()

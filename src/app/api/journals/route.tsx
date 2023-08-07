@@ -4,6 +4,7 @@ import Journals from "@/app/Models/Journals";
 //import Journal from "@/app/dashboard/journal/page";
 //import { DummyDocument } from "@/app/Models/Journals";
 import { NextApiRequest ,  NextApiResponse  } from "next";
+import { ObjectId } from "mongoose";
 
 interface Journal {
     title: string;
@@ -52,12 +53,14 @@ export const POST = async (req:Request, res:any) =>{
 
     const body = await req.json();
 
-  //  console.log(body);
     
 
-   
+   // console.log(body);   
 
-    try{
+    if(body.method === "POST"){
+
+
+      try{
 
         await connectDb();
 
@@ -86,7 +89,72 @@ export const POST = async (req:Request, res:any) =>{
     }
 
 
+
+
+    }
+
+
+
+
+    if(body.method === "DELETE"){
+
+      console.log(body);   
+
+
+      try{
+
+        await connectDb();
+
+       // const journals  = await Journals.find(); 
+
+       //   console.log(journals);
+
+    const result = await   Journals.deleteOne({
+        _id: body.id
+      });
+
+      console.log(result);
+      
+
+    return new NextResponse(JSON.stringify({result:result}), {status:200});
+      
+
+           // return res.send().json("POSTED SUCCESSFULLY");
+         // return new NextResponse("POSTED SUCCESSFULLY", {status:200});
+           
+
+
+    }catch(err){
+       
+        return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
+       // console.log(err);
+        
+    }
+
+
+    }
+    
+
+   
+
+  
+
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

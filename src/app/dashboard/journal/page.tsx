@@ -3,6 +3,7 @@
 import Link from "next/link";
 import "./page.modules.css"
 import { ObjectId } from "mongoose";
+import PopUp from "./popup-dashboard/popup";
 
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
 import JournalsTableItem from "../components/JournalsTableItem/JournalsTableItem";
@@ -22,8 +23,9 @@ interface Journal {
 function Journal (){
 
     const {sidebar, setSidebar} = useGlobalContext();
+    
     const [journals, setJournals] = useState([]);
-    const [isLoading,setIsLoading] = useState(false);
+    const [isLoading,setIsLoading] = useState<boolean | string>("");
 
    let counter = 1;
 
@@ -65,7 +67,7 @@ function Journal (){
 
 
     useEffect(()=>{
-
+      
         getDataInfo();
 
     },[])
@@ -155,6 +157,9 @@ function Journal (){
     
     
     </div>
+
+    <PopUp title={""}
+                content={""} />
 
 
 
