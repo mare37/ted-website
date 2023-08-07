@@ -4,7 +4,7 @@ import { useRef ,useState} from "react";
 import "./page.modules.css"
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
-import PopUp from "../popup/popup";
+import PopUp from "../popup-createjournal/popup";
 import { useGlobalContext } from "@/app/context/store";
 
 
@@ -33,19 +33,7 @@ function CreateJournal() {
   const [content, setContent] = useState("");
 
 
-  const handleClick = ()=>{
-
-    if(title.length != 0 && content.length != 0){
-      setPopup(true)
-    }else{
-
-      console.log("One of the fields is empty");
-      
-
-    }
-
-  }
-
+  
 
   
 
