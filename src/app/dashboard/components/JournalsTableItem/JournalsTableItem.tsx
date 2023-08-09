@@ -2,6 +2,7 @@ import "./JournalsTableItem.modules.css"
 import { ObjectId } from "mongoose";
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/app/context/store";
+import Link from "next/link";
 
 interface Journal {
     no:number
@@ -84,7 +85,10 @@ useEffect(()=>{
     return <div className="table-item"  >
          <span className="table-item-no">{no}</span>
                     <span className="table-item-title" >{title}</span>
-                    <span className="table-item-buttons"> <button className="tableItem-edit"    >Edit</button> <button className="tableItem-delete"  onClick={()=>{ setPopup(true); setJournalId(id.toString()); setJournalTitle(title)  }} >Delete</button>  </span>
+                    <span className="table-item-buttons"> 
+                    <button className="tableItem-edit"  onClick={()=>{setJournalId(id.toString())}}  >   <Link href={`/dashboard/journal/editjournal/${id.toString()}`}>Edit</Link>    </button>
+                    
+                    <button className="tableItem-delete"  onClick={()=>{ setPopup(true); setJournalId(id.toString()); setJournalTitle(title)  }} >Delete</button>  </span>
     </div>
 }
 

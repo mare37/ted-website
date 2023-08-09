@@ -18,6 +18,11 @@ interface Journal {
 
 export const GET = async (req: NextApiRequest, res: NextApiResponse) =>{
 
+
+ // const query = req.query
+
+  console.log("ALL JOURNALS");
+
    
 
     try{
@@ -55,7 +60,7 @@ export const POST = async (req:Request, res:any) =>{
 
     
 
-   // console.log(body);   
+   console.log(body);   
 
     if(body.method === "POST"){
 
@@ -131,6 +136,43 @@ export const POST = async (req:Request, res:any) =>{
         
     }
 
+
+    }
+
+
+
+    if(body.method === "PUT"){
+
+      console.log("PUT TIME");
+
+      try{
+
+
+        await connectDb();
+
+        // const journals  = await Journals.find(); 
+ 
+        //   console.log(journals);
+ 
+        const result = await Journals.updateOne(
+          { _id:body.id },
+          {
+         title: body.title,
+         journal:body.content
+       });
+ 
+       console.log(result);
+       
+       return new NextResponse(JSON.stringify({journalEdited:true, message:"Successfully Edited"}), {status:200});
+
+
+      }catch(err){
+        return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
+
+      }
+      
+
+     
 
     }
     
