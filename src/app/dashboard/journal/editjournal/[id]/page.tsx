@@ -1,41 +1,47 @@
 'use client'
 
-import { useRef ,useState} from "react";
+import { useEffect, useRef ,useState} from "react";
 import "./page.modules.css"
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
-import PopUp from "../popup-createjournal/popup";
+import PopUp from "../../popup-editjournal/popup";
 import { useGlobalContext } from "@/app/context/store";
+import useSWR from 'swr'
+import { useParams  } from 'next/navigation'
 
 
 
 
-export async function POST() {
-  const res = await fetch("http://localhost:3000/api/journals", {
+
+export async function getData(id:string) {
+  console.log(id);
+  
+  const res = await fetch(`http://localhost:3000/api/journals/${id}`, {
    method: 'POST',
    headers: {
      'Content-Type': 'application/json',
     
    },
-   body: JSON.stringify({ time: new Date().toISOString() }),
+   body: JSON.stringify({ id: id }),
  })
-}
+
+ return res.json();
+} 
 
 
 
 
 
 
-function CreateJournal() {
 
-  
+
+function EditJournal() {
+  const params = useParams();
   const [contentSaved, setContentSaved] = useState(false);
-  const {popup,setPopup} = useGlobalContext();
-  const [title, setTittle] = useState("");
+  const {popup,setPopup, journalId} = useGlobalContext();
+  const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-
-
-  
+ 
 
   window.onpopstate = (event) => {
     setPopup(false)
@@ -44,10 +50,25 @@ function CreateJournal() {
     );
   };
 
+  
 
+  useEffect(()=>{
 
+      console.log(params);
+      
+    getData(params.id).then((response)=>{
+       console.log(response);
+       setTitle(response[0].title)
+       setContent(response[0].journal);
+       
+     })
 
+   },[])
+ 
 
+  
+
+  
 
     const editorRef = useRef<TinyMCEEditor | null>(null);
     const log = () => {
@@ -93,27 +114,20 @@ function CreateJournal() {
     console.log(contentSaved);
     
 
-    //console.log(content);
-
-    const onChange = (e:any)=>{
-    //  console.log(e);
-      
-     // setContent(e)
-
-    }
+   
     
 
     return <div  className="create-journal"  >
 
         <div className="create-journal-title" >
-            <input placeholder="Title"   onChange={(e)=>{setTittle(e.target.value)}}          />
+            <input placeholder="Title" value={title}  onChange={(e)=>{setTitle(e.target.value)}}          />
         </div>
-
+          
         <div>
         <Editor
          onInit={(evt, editor) => editorRef.current = editor}
-         initialValue="<p>Welcome Mr Ted!! Happy writing</p>"
-         onEditorChange={onChange}
+         initialValue={content}
+        
          
          init={{
            height: 350,
@@ -145,7 +159,9 @@ function CreateJournal() {
 
       
         <PopUp title={title}
-                content={content} />  
+                content={content}
+                id={params.id}
+                 />  
     
     </div>
 }
@@ -153,6 +169,6 @@ function CreateJournal() {
 
 
 
-  export default CreateJournal;
+  export default EditJournal;
 
 
