@@ -1,30 +1,73 @@
 'use client'
 
-import { useRef ,useState} from "react";
+import { useEffect, useRef ,useState} from "react";
 import "./page.modules.css"
 import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
+//import PopUp from "../popup/popup";
 import PopUp from "../popup/popup";
 import { useGlobalContext } from "@/app/context/store";
+import {usePost} from "@/app/Hooks/stories";
 
 
 function CreateStory() {
 
   const [contentSaved, setContentSaved] = useState(false);
-  const {popup,setPopup} = useGlobalContext();
+  const {popup,setPopup,setCreateStory,setError,setIsLoading} = useGlobalContext();
 
-  
+  const {POST} = usePost()
+  const [title, setTitle] = useState("");
+  const [content, setContent] = useState("");
+  const [tag, setTag] = useState("");
+
+
+  window.onpopstate = (event) => {
+    setPopup(false)
+    console.log(
+      `location: ${document.location}, state: ${JSON.stringify(event.state)}`,
+    );
+  };
+
+
+  useEffect(()=>{
+    setCreateStory(false)
+    setError(false)
+    setIsLoading(false)
+
+  },[])
+
+
+
 
     const editorRef = useRef<TinyMCEEditor | null>(null);
     const log = () => {
+      
+      
       setContentSaved(true)
       if (editorRef.current) {
-        console.log(editorRef.current.getContent());
+        let text = editorRef.current.getContent();
+        setContent(text);
+
+
+          if(title.length === 0 || content.length === 0){
+
+                console.log("One of the fields is empty");
+              
+              }else{
+                setContentSaved(true)
+                console.log(text);
+              }
+
+
+
+
+        
       }
+      
      
     }
 
-
+ 
     console.log(contentSaved);
     
 
@@ -32,19 +75,19 @@ function CreateStory() {
     return <div  className={popup? "create-story cover-screen": "create-story"}  >
 
         <div className="create-story-title" >
-            <input placeholder="Title" />
+            <input placeholder="Title"    onChange={(e)=>{setTitle(e.target.value)}}            />
         </div>
 
         <div className="create-story-select"   >
             <p>Select story options <span>*</span>  </p>
 
-         <select>
+         <select   onChange={(e)=>{setTag(e.target.value)}}      >
          <option     className="first-option" value="">OPTIONS</option>
-         <option value="employee story">EMPLOYEE STORY:</option>
-         <option value="partner story">PARTNER STORY:</option>
-         <option value="video">VIDEO:</option>
-         <option value="story">STORY:</option>
-         <option value="news update">NEWS UPDATE:</option>
+         <option value="EMPLOYEE STORY">EMPLOYEE STORY:</option>
+         <option value="PARTNER STORY">PARTNER STORY:</option>
+         <option value="VIDEO">VIDEO:</option>
+         <option value="STORY">STORY:</option>
+         <option value="NEWS UPDATE">NEWS UPDATE:</option>
          </select>
 
 
@@ -84,7 +127,16 @@ function CreateStory() {
          {contentSaved?   <button onClick={()=>{setPopup(true)}} >Create Journal</button>: ""   }
         </div>
 
-        <PopUp/>
+        <PopUp
+           title={title}
+           tag={tag}
+           content={content}
+           successMessage={"Story Created Successfully "}
+           loadingMessage={"Creating Story..."}
+           actionMessage={"Create Story"}
+           errorMessage={"Error, something is wrong"}
+           function={POST}
+        />
     </div>
 }
 

@@ -1,16 +1,44 @@
-
 import "./popup.modules.css"
 import { useGlobalContext } from "@/app/context/store";
 import { useState } from "react";
 
+import { useRouter } from "next/navigation";
 
-function PopUp (){
+
+import  {usePost} from "@/app/Hooks/stories";
 
 
-    const {popup,setPopup} = useGlobalContext();
+interface Journal {
+  title: string;
+  tag:string
+  content: string;
+  successMessage:string,
+  loadingMessage:string,
+  actionMessage:string,
+  errorMessage:string
+ 
+}
 
-    const [createStory,setCreateStory] = useState(false);
 
+function PopUp (props: any) {
+  const router = useRouter();
+
+    const {popup,setPopup, createStory,isLoading,error,  setError} = usePost()
+
+
+    const handleFunction = ()=>{
+      
+      console.log(props.function);
+    
+      if(props.function.name === "POST"){
+        props.function(props.title,props.tag,props.content)
+       
+      }
+
+    }
+
+
+   
 
 
 
@@ -18,10 +46,10 @@ function PopUp (){
 
          { createStory ?  <div  className="popup-create-story"   >
 
-                            <p>Story Created Successfully</p>
+                            <p>{props.successMessage}</p>
 
                             <div>
-                              <button>ok</button>
+                              <button onClick={()=>{setPopup(false); router.push('/dashboard/stories')}}   >ok</button>
 
 
                             </div>
@@ -30,13 +58,12 @@ function PopUp (){
                             
                             
                             :
-
                             <div  className="popup-create-story"   >
 
-                            <p>Create Story</p>
+                            <p>{props.actionMessage}</p>
 
                             <div>
-                            <button onClick={()=>{setCreateStory(true)}}    >Yes</button>
+                            <button onClick={handleFunction}    >Yes</button>
 
                             <button onClick={()=>{setPopup(false)}}   >No</button>
 
@@ -44,8 +71,30 @@ function PopUp (){
                             </div>
 
 
+                            <div  className={isLoading ? "popup-create-story2-child" : "popup-create-story2-child removeloading"}           >
+
+                              <p>{props.loadingMessage}</p>
 
                             </div>
+
+                            <div  className={error ? "popup-create-story2-child-ERROR" : "popup-create-story2-child-ERROR remove"}           >
+
+                                <p>{props.errorMessage}</p>
+
+                                <button onClick={()=>{setPopup(false); setError(false)}}   >OK</button>
+
+                             </div>
+
+
+                            
+
+                            </div>
+
+
+
+                            
+
+                          
          }
 
 
