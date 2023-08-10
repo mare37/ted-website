@@ -2,15 +2,61 @@
 
 import "./page.modules.css"
 import Link from "next/link";
+import { useEffect } from "react";
 
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
 import StoriesTableItem from "../components/StoriesTableItem/StoriesTableItem";
 import { useGlobalContext } from "@/app/context/store";
+import { useGetStories } from "@/app/Hooks/stories";
+
+import { ObjectId } from "mongoose"
+
+
+
+interface Story {
+    id: ObjectId,
+    title: string;
+    tag:string,
+    story: string;
+   
+  }
 
 function Stories (){
 
 
     const {sidebar, setSidebar} = useGlobalContext();
+
+    const {getData,isLoading,setIsLoading ,stories, setStories } = useGetStories()
+
+
+
+
+
+    const getDataInfo = async () =>{
+        let data = await getData();
+        data = data.reverse();
+        setStories(data)
+        setIsLoading(false);
+
+        console.log(data);
+        
+
+    }
+
+
+
+    useEffect(()=>{
+      
+        getDataInfo();
+
+    },[])
+
+
+
+
+
+
+
 
     return <div className="dashboard"   >
 
@@ -34,9 +80,17 @@ function Stories (){
                     <span className="table-heading-buttons">Delete or Edit</span>
                 </div>
 
-                <StoriesTableItem/>
-                <StoriesTableItem/>
-                <StoriesTableItem/>
+                {stories.map((item:Story,key:number)=>{
+                    
+                    return <StoriesTableItem 
+                            key ={key}
+                            id ={item.id}
+                            tag ={item.tag}
+                            title={item.title}
+                            story ={item.story}  
+                    />
+
+                })}
 
                
               
