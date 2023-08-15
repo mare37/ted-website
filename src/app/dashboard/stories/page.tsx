@@ -8,13 +8,14 @@ import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
 import StoriesTableItem from "../components/StoriesTableItem/StoriesTableItem";
 import { useGlobalContext } from "@/app/context/store";
 import { useGetStories } from "@/app/Hooks/stories";
-
+import {usePost} from "@/app/Hooks/stories";
 import { ObjectId } from "mongoose"
+import PopUp from "./popup/popup";
 
 
 
 interface Story {
-    id: ObjectId,
+    _id: ObjectId,
     title: string;
     tag:string,
     story: string;
@@ -24,9 +25,11 @@ interface Story {
 function Stories (){
 
 
-    const {sidebar, setSidebar} = useGlobalContext();
+    const {sidebar, setSidebar, storyId, storyTitle} = useGlobalContext();
 
     const {getData,isLoading,setIsLoading ,stories, setStories } = useGetStories()
+
+    const {deleteStory} = usePost();
 
 
 
@@ -84,7 +87,7 @@ function Stories (){
                     
                     return <StoriesTableItem 
                             key ={key}
-                            id ={item.id}
+                            id ={item._id}
                             tag ={item.tag}
                             title={item.title}
                             story ={item.story}  
@@ -92,6 +95,7 @@ function Stories (){
 
                 })}
 
+             
                
               
                
@@ -116,6 +120,18 @@ function Stories (){
     
     
     </div>
+
+
+    <PopUp
+         
+          title={storyTitle}
+          id = {storyId}
+          successMessage={"Story Deleted Successfully "}
+          loadingMessage={"Deleting Story..."}
+          actionMessage={"Delete "}
+          errorMessage={"Error, something is wrong"}
+          function={deleteStory}
+       />
 
 
     </div>

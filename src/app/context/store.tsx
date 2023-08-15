@@ -20,10 +20,16 @@ interface ContextProps {
     setSidebar: Dispatch<SetStateAction<boolean>>
     popup: boolean,
     setPopup: Dispatch<SetStateAction<boolean>>
+
     journalId: string,
     setJournalId: Dispatch<SetStateAction<string>>
     journalTitle: string,
     setJournalTitle: Dispatch<SetStateAction<string>>
+    storyId: string,
+    setStoryId: Dispatch<SetStateAction<string>>
+    storyTitle: string,
+    setStoryTitle: Dispatch<SetStateAction<string>>
+
     createStory: boolean,
     setCreateStory: Dispatch<SetStateAction<boolean>>
     isLoading: boolean,
@@ -41,10 +47,17 @@ const GlobalContext = createContext<ContextProps>({
     setSidebar: (): boolean => false,
     popup: false,
     setPopup: (): boolean => false,
+
     journalId: "",
     setJournalId:(): string => ""  ,
     journalTitle: "",
     setJournalTitle:(): string => ""  ,
+    storyId: "",
+    setStoryId:(): string => ""  ,
+    storyTitle: "",
+    setStoryTitle:(): string => ""  ,
+
+
     createStory: false,
     setCreateStory:(): boolean => false,
     isLoading: false,
@@ -59,8 +72,12 @@ const GlobalContext = createContext<ContextProps>({
 export const GlobalContextProvider = ({children})=>{
     const [sidebar, setSidebar] = useState(false);
     const [popup, setPopup] = useState(false);
+
     const [journalId, setJournalId] = useState("");
     const [journalTitle, setJournalTitle] = useState("");
+    const [storyId, setStoryId] = useState("");
+    const [storyTitle, setStoryTitle] = useState("");
+
     const [createStory,setCreateStory] = useState(false);
     const [isLoading,setIsLoading] = useState(false);
     const [error,setError] = useState(false);
@@ -70,7 +87,7 @@ export const GlobalContextProvider = ({children})=>{
         <GlobalContext.Provider  value={{sidebar, setSidebar, popup, setPopup, 
                                          journalId,setJournalId,journalTitle,
                                          setJournalTitle, createStory,setCreateStory,  isLoading,setIsLoading,
-                                        error,setError}}>
+                                        error,setError,storyId, setStoryId,storyTitle, setStoryTitle  }}>
           {children}
         </GlobalContext.Provider>
     )

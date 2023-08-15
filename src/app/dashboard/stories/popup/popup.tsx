@@ -23,16 +23,37 @@ interface Journal {
 function PopUp (props: any) {
   const router = useRouter();
 
-    const {popup,setPopup, createStory,isLoading,error,  setError} = usePost()
+    const {popup,setPopup, setCreateStory,  createStory,isLoading,error,  setError} = usePost()
+
+    const [deleted, setDeleted] = useState(false)
 
 
-    const handleFunction = ()=>{
+    const  handleFunction = async ()=>{
       
       console.log(props.function);
     
       if(props.function.name === "POST"){
         props.function(props.title,props.tag,props.content)
        
+      }
+
+      if(props.function.name === "deleteStory"){
+        console.log(props.id);
+        
+       const  res = await props.function(props.id)
+
+       setDeleted(res)
+
+       console.log(res);
+       
+       
+      }
+
+
+      if(props.function.name === "EditStory"){
+        console.log("Yes Edit");
+        props.function(props.title,props.tag, props.content, props.id)
+        
       }
 
     }
@@ -49,7 +70,7 @@ function PopUp (props: any) {
                             <p>{props.successMessage}</p>
 
                             <div>
-                              <button onClick={()=>{setPopup(false); router.push('/dashboard/stories')}}   >ok</button>
+                              <button onClick={()=>{setPopup(false); setCreateStory(false); router.push("/dashboard/stories")}}   >ok</button>
 
 
                             </div>
@@ -60,7 +81,7 @@ function PopUp (props: any) {
                             :
                             <div  className="popup-create-story"   >
 
-                            <p>{props.actionMessage}</p>
+                            <p>{props.actionMessage} {props.title}</p>
 
                             <div>
                             <button onClick={handleFunction}    >Yes</button>
