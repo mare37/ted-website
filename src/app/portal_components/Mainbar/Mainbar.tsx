@@ -1,12 +1,53 @@
-
-
+import { ObjectId } from "mongoose";
+import { useRouter } from "next/navigation";
 import { useState , useEffect} from "react"
 import { useGlobalContext } from "@/app/context/store";
+import Item from "./Item";
+import { loadingDiv } from "./localcomponents";
 
 import "./Mainbar.modules.css"
 
-function Mainbar(){
+interface Journal {
+    _id: ObjectId,
+    title: string
+    journal: string
+    identity:string
+   
+  }
+
+
+  interface Story {
+    _id: ObjectId,
+    title: string
+    tag:string,
+    story: string
+    identity:string
+   
+  }
+
+
+interface info{
+    journalsLoading:boolean
+    storiesLoading:boolean
+    journals:Journal[]
+    stories:Story[]
+
+}
+
+
+
+
+
+
+
+
+function Mainbar(props:info){
    // const [width, setWidth] = useState(0)
+    const router = useRouter()
+   console.log(props.journals);
+   console.log(props.stories);
+   
+   
    
    
     const {sidebar, setSidebar} = useGlobalContext();
@@ -22,22 +63,22 @@ function Mainbar(){
             <h2>Dashboard</h2>
 
             <div className="mainbar-item-container"  >
-            <div  className="mainbar-item"  >
+            <div onClick={()=>{router.push("/dashboard/journal")}} className="mainbar-item"  >
 
                 <section>
                     <h3>Journals</h3>
-                    <p>15</p>
+                    <p>{props.journals.length || "Loading..."}</p>
                 </section>
 
                 <img   src="./humburger-icon.png"   /> 
 
             </div>
 
-            <div  className="mainbar-item"  >
+            <div  onClick={()=>{router.push("/dashboard/stories")}}  className="mainbar-item"  >
 
                 <section>
                     <h3>Stories</h3>
-                    <p>15</p>
+                    <p>{props.stories.length || "Loading.."}</p>
                 </section>
 
                 <img   src="./humburger-icon.png"   /> 
@@ -61,41 +102,22 @@ function Mainbar(){
 
             <div className="latest-journals"  >
 
-                <div className="mainbar-journalItem">
-                    <section>
-                        <img   src="./journal-pic2.jpg" />
-                    </section>
 
-                    <section  className="mainbar-journalItem-text" >
-                        <h3>Nostalgia Laravel 6</h3>
-                        <p>Read more</p>
-                        
-                    </section>
+            {props.journalsLoading?  
+                 loadingDiv:
+            
+            props.journals.map((item:Journal,key:number)=>{
 
-
-                </div>
-
-
-
-                <div className="mainbar-journalItem">
-                    <section>
-                        <img   src="./journal-pic2.jpg" />
-                    </section>
-
-                    <section  className="mainbar-journalItem-text" >
-                        <h3>Weapon Yang Bikin Crot</h3>
-                        <p>Read more</p>
-                        
-                    </section>
-
-
-                </div>
-
-
-
-
-
-
+                return <Item
+                        key={key}
+                        id={item._id}
+                        title={item.title}
+                        journal={item.journal}
+                        identity={"journal"}
+                />
+                    
+                }).reverse().slice(0,2)}
+                
 
             </div>
 
@@ -103,40 +125,21 @@ function Mainbar(){
 
             <div className="latest-journals"  >
 
-                <div className="mainbar-journalItem">
-                    <section>
-                        <img   src="./new-and-updates.jpg" />
-                    </section>
+                {props.storiesLoading?  loadingDiv :
 
-                    <section  className="mainbar-journalItem-text" >
-                        <h3>Nostalgia Laravel 6</h3>
-                        <p>Read more</p>
-                        
-                    </section>
+                    props.stories.map((item:Story, key:number)=>{
 
+                        return <Item 
+                                key={key}
+                                id={item._id}
+                                title={item.title}
+                                tag={item.tag}
+                                story={item.story}
+                                identity={"impact"}
 
-                </div>
-
-
-
-                <div className="mainbar-journalItem">
-                    <section>
-                        <img   src="./new-and-updates.jpg" />
-                    </section>
-
-                    <section  className="mainbar-journalItem-text" >
-                        <h3>Nostalgia Laravel 6</h3>
-                        <p>Read more</p>
-                        
-                    </section>
-
-
-                </div>
-
-
-
-
-
+                        />
+                    }).reverse().slice(0,2)
+                }
 
 
             </div>

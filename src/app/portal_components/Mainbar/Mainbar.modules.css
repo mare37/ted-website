@@ -113,6 +113,8 @@
 
 }
 
+
+
 .mainbar-journalItem-text{
 
     padding: 10px 14px;
@@ -135,6 +137,29 @@
     border-radius: 15px;
 
 
+}
+
+.mainbar-journalItem img{
+
+    width: 150px;
+    border-radius: 15px;
+    
+   
+
+
+}
+
+.loading{
+    background-color:#c7c8c9;
+    width: 150px;
+    height: 100px;
+    border-radius: 15px;
+}
+
+.mainbar-journalItem-text-loading{
+
+    padding: 10px 14px;
+    background-color:#c7c8c9;
 }
 
 
