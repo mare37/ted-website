@@ -25,6 +25,7 @@ function Journal (){
     const {sidebar, setSidebar} = useGlobalContext();
     
     const [journals, setJournals] = useState([]);
+    const [error, setError] = useState(false);
     const [isLoading,setIsLoading] = useState<boolean | string>("");
 
    let counter = 1;
@@ -34,8 +35,33 @@ function Journal (){
     
     setIsLoading(true);
 
-    const res = await fetch("http://localhost:3000/api/journals", {cache :"no-store"});
+     try{
+      const res = await fetch("http://localhost:3000/api/journals", {cache :"no-store"});
+      return res.json();
 
+      if(!res.ok){
+        setIsLoading(false);
+        setError(true)
+         throw new Error("Error")
+          
+      }
+
+
+     }catch(error){
+
+      setIsLoading(false);
+      setError(true)
+      console.log(error);
+      
+      throw new Error("Error")
+
+      
+    
+      
+     }
+
+   
+    
    
     //const data =  await res.json();
 
@@ -43,12 +69,9 @@ function Journal (){
 
     
 
-    if(!res.ok){
-       throw new Error("Error")
-        
-    }
+   
 
-    return res.json();
+   
 
 
 }
@@ -56,6 +79,8 @@ function Journal (){
     const getDataInfo = async () =>{
         let data = await getData();
         data = data.reverse();
+        console.log(data);
+        
         setJournals(data)
         setIsLoading(false);
 
@@ -81,24 +106,31 @@ function Journal (){
 
      if(isLoading === false){
 
-       if(  journals.length === 0  ){
+       if(  journals.length === 0 && error === true  ){
 
-         journalsData  = <p>No Journals</p>
+        journalsData  = <p>Connection Error</p>
+
+
+       }else if( journals.length > 0){
+
+        journalsData =  journals.map((item: Journal, key:number)=>{
+                           
+ 
+          return <JournalsTableItem 
+                   no={counter++}
+                   key={key}
+                   id={item._id}
+                   title={item.title}
+                   journal={item.journal}
+               />
+       })
 
 
        }else{
 
-         journalsData =  journals.map((item: Journal, key:number)=>{
-                           
-
-            return <JournalsTableItem 
-                     no={counter++}
-                     key={key}
-                     id={item._id}
-                     title={item.title}
-                     journal={item.journal}
-                 />
-         })
+      
+        journalsData  = <p>No Journals</p>
+        
 
        }
     }
