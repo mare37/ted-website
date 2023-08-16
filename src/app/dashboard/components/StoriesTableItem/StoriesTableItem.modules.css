@@ -25,6 +25,7 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    cursor: pointer;
    
 }
 
@@ -47,6 +48,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
+    cursor: pointer;
 }
 
 .table-item-buttons{
@@ -72,6 +74,7 @@
     border: none;
     padding: 3px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 .tableItem-delete{
@@ -82,6 +85,7 @@
     border: none;
     padding: 3px;
     border-radius: 5px;
+    cursor: pointer;
 }
 
 
