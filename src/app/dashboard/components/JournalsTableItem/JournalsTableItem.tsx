@@ -3,6 +3,7 @@ import { ObjectId } from "mongoose";
 import { useEffect, useState } from "react";
 import { useGlobalContext } from "@/app/context/store";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Journal {
     no:number
@@ -21,6 +22,8 @@ interface Journal {
 
 
 function JournalsTableItem ({no ,id, title,journal}: Journal){
+
+  const router = useRouter();
 
 
  // const [journalId , setJournalId] = useState(false)
@@ -84,7 +87,7 @@ useEffect(()=>{
 
     return <div className="table-item"  >
          <span className="table-item-no">{no}</span>
-                    <span className="table-item-title" >{title}</span>
+                    <span   onClick={()=>{router.push(`/journal/${id}`)}}     className="table-item-title" >{title}</span>
                     <span className="table-item-buttons"> 
                     <button className="tableItem-edit"  onClick={()=>{setJournalId(id.toString())}}  >   <Link href={`/dashboard/journal/editjournal/${id.toString()}`}>Edit</Link>    </button>
                     
