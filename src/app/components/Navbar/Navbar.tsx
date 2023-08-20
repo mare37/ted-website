@@ -15,7 +15,7 @@ const links = [
     {
         id:2,
         href: "/get-involved",
-        link: "Why Reafforestartion"
+        link: "Why Reafforestration?"
     },
     {
         id:3,
@@ -130,7 +130,7 @@ function Navbar (){
             <img    onClick={()=>{ setClicked((prev)=>{return !prev}) }} src={image.src}   />
             </div>
        
-
+ 
            
 
 
