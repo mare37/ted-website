@@ -88,7 +88,7 @@ export const POST = async (req:Request, res:any) =>{
        const result = await Journals.create({
         title: body.title,
         journal:body.content,
-        imageName:""
+        imageName:"0"
       });
 
       console.log(result);
@@ -100,6 +100,9 @@ export const POST = async (req:Request, res:any) =>{
 
 
     }catch(err){
+
+      console.log(err);
+      
        
         return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
        // console.log(err);

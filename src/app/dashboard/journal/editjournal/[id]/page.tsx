@@ -6,7 +6,6 @@ import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
 import PopUp from "../../popup-editjournal/popup";
 import { useGlobalContext } from "@/app/context/store";
-import useSWR from 'swr'
 import { useParams  } from 'next/navigation'
 
 

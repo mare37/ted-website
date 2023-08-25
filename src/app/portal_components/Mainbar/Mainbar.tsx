@@ -11,6 +11,7 @@ interface Journal {
     _id: ObjectId,
     title: string
     journal: string
+    imageName:string,
     identity:string
    
   }
@@ -21,6 +22,7 @@ interface Journal {
     title: string
     tag:string,
     story: string
+    imageName:string,
     identity:string
    
   }
@@ -67,7 +69,7 @@ function Mainbar(props:info){
 
                 <section>
                     <h3>Journals</h3>
-                    <p>{props.journals.length || "Loading..."}</p>
+                    <p>{ props.journalsLoading?  "Loading.." :props.journals.length === 0? "---" :props.journals.length }</p>
                 </section>
 
                 <img   src="./humburger-icon.png"   /> 
@@ -78,7 +80,7 @@ function Mainbar(props:info){
 
                 <section>
                     <h3>Stories</h3>
-                    <p>{props.stories.length || "Loading.."}</p>
+                    <p>{ props.storiesLoading?  "Loading.." :props.stories.length === 0? "---" :props.stories.length }</p>
                 </section>
 
                 <img   src="./humburger-icon.png"   /> 
@@ -103,20 +105,23 @@ function Mainbar(props:info){
             <div className="latest-journals"  >
 
 
-            {props.journalsLoading?  
-                 loadingDiv:
-            
-            props.journals.map((item:Journal,key:number)=>{
+            {props.journalsLoading?   loadingDiv: 
 
-                return <Item
-                        key={key}
-                        id={item._id}
-                        title={item.title}
-                        journal={item.journal}
-                        identity={"journal"}
-                />
-                    
-                }).reverse().slice(0,2)}
+                    props.journals.length === 0 ? <p  className="no-show"   >No Journals To Show</p>: 
+                                        
+                    props.journals.map((item:Journal,key:number)=>{
+
+                        return <Item
+                                key={key}
+                                id={item._id}
+                                title={item.title}
+                                journal={item.journal}
+                                imageName={item.imageName}
+                                identity={"journal"}
+                        />
+                            
+                        }).reverse().slice(0,2)
+              }
                 
 
             </div>
@@ -127,6 +132,8 @@ function Mainbar(props:info){
 
                 {props.storiesLoading?  loadingDiv :
 
+                    props.stories.length === 0 ? <p  className="no-show"  >No Stories To Show</p>: 
+                    
                     props.stories.map((item:Story, key:number)=>{
 
                         return <Item 
@@ -135,10 +142,12 @@ function Mainbar(props:info){
                                 title={item.title}
                                 tag={item.tag}
                                 story={item.story}
+                                imageName={item.imageName}
                                 identity={"impact"}
 
                         />
                     }).reverse().slice(0,2)
+                 
                 }
 
 
