@@ -21,7 +21,7 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) =>{
  
          const journals  = await Stories.find(); 
  
-        //   console.log(journals);
+           console.log(journals);
  
  
            return new NextResponse( JSON.stringify(journals), {status:200});
@@ -66,7 +66,7 @@ export const POST = async (req:Request,res:Response)=>{
       
     
 
-    return new NextResponse(JSON.stringify({StoryPosted:true, message:"Successfully posted"}), {status:200});
+    return new NextResponse(JSON.stringify({StoryPosted:true,id:result._id.toString(), message:"Successfully posted"}), {status:200});
 
 
     }catch(err){
