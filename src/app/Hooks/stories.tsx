@@ -38,11 +38,14 @@ const usePost = () => {
              if(response.StoryPosted === true){
                setIsLoading(false);
                setCreateStory(response.StoryPosted);
+
+               return response
                }else{
        
        
              setIsLoading(false);
              setError(true)
+             return {StoryPosted:false, message:"Failed to post"}
        
        
           }
@@ -58,13 +61,7 @@ const usePost = () => {
 
            }
          
-         
-          
-         
-       
       
-         
-        
           
          }
 

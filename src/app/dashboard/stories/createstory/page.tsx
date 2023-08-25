@@ -19,6 +19,8 @@ function CreateStory() {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tag, setTag] = useState("");
+  const [file, setPhoto] = useState<File>();
+  const [fileName, setPhotoName] = useState<String | null>("");
 
 
   window.onpopstate = (event) => {
@@ -35,6 +37,23 @@ function CreateStory() {
     setIsLoading(false)
 
   },[])
+
+
+  const savePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    if (!e.target.files) return;
+    const file = e.target.files;
+  
+      console.log(file);
+      setPhoto(e.target.files[0]);
+
+      const filename = file[0].name
+      
+        setPhotoName(fileName);
+   
+  };
+
+
 
 
 
@@ -78,6 +97,7 @@ function CreateStory() {
             <input placeholder="Title"    onChange={(e)=>{setTitle(e.target.value)}}            />
         </div>
 
+      
         <div className="create-story-select"   >
             <p>Select story options <span>*</span>  </p>
 
@@ -92,6 +112,14 @@ function CreateStory() {
 
 
         </div>
+
+        <form className="upload-picture">
+              Upload Journal Picture
+              <input
+                type="file"
+                onChange={ savePhoto  }
+              />
+            </form>
 
         <div>
         <Editor
@@ -136,6 +164,7 @@ function CreateStory() {
            actionMessage={"Create Story"}
            errorMessage={"Error, something is wrong"}
            function={POST}
+           file={file}
         />
     </div>
 }

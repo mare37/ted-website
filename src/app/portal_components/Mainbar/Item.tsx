@@ -8,6 +8,7 @@ interface journals{
     title:string,
     journal:string
     identity:string
+    imageName:string
 
 
 }
@@ -17,6 +18,7 @@ interface Story {
     title: string;
     tag:string,
     story: string;
+    imageName:string
     identity:string
    
 
@@ -29,13 +31,14 @@ interface Story {
 function Item (props:  Props ){
 
     const router = useRouter()
+    
  
 
 
     return(
         <div className="mainbar-journalItem">
         <section>
-            <img   src="./journal-pic2.jpg" />
+            <img   src={`./${props.imageName}`} />
         </section>
     
         <section  className="mainbar-journalItem-text" >

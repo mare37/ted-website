@@ -33,7 +33,35 @@ function PopUp (props: any) {
       console.log(props.function);
     
       if(props.function.name === "POST"){
-        props.function(props.title,props.tag,props.content)
+        const response = await props.function(props.title,props.tag,props.content)
+
+        
+          const formData = new FormData();
+          const file = props.file
+
+          if (!file) return;
+          console.log(file);
+          
+          formData.append("file", file);
+          formData.append("id", response.id);
+         formData.append("fileName", file.name);
+         formData.append("identity", "StoriesUpload");
+
+          const res1 = await fetch("http://localhost:3000/api/upload", {
+            method: 'POST',
+          
+            body: formData 
+          })
+    
+          
+          const response1 =  await res1.json() 
+        
+        console.log(response1);
+        
+
+
+
+
        
       }
 

@@ -7,6 +7,7 @@ const {Schema} = mongoose;
 interface Journal {
     title: string;
     journal: string;
+    imageName:string
    
   }
 
@@ -28,6 +29,12 @@ const journalsSchema = new Schema<Journal>({
         type:String,
         required:true
     },
+    imageName:{
+      type:String,
+      required:true
+     
+      
+  },
 
 
 
@@ -35,4 +42,4 @@ const journalsSchema = new Schema<Journal>({
 )
 
 
-export default  mongoose.models.Journal ||    mongoose.model<Journal>("Journal", journalsSchema );
+export default mongoose.models.Journal ||  mongoose.model<Journal>("Journal", journalsSchema );

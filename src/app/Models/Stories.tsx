@@ -5,9 +5,10 @@ const {Schema} = mongoose;
 
 
 interface Story {
-    title: string;
-    tag:string,
-    story: string;
+    title: string
+    tag:string
+    story: string
+    imageName: string
    
   }
 
@@ -34,6 +35,13 @@ const storySchema = new Schema<Story>({
         type:String,
         required:true
     },
+
+    imageName:{
+      type:String,
+      required:true
+     
+      
+  },
 
 
 
