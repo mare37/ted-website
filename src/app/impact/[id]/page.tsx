@@ -12,6 +12,7 @@ function Story(){
     const param = useParams()
     const [title, setTitle] = useState("");
     const [content, setContent] = useState("")
+    const [imageName, setImageName] = useState("")
 
     useEffect(()=>{
        
@@ -20,7 +21,7 @@ function Story(){
         
         getOneStoryData(param.id).then((response)=>{
           console.log(response);
-    
+          setImageName(response[0].imageName)
           setTitle(response[0].title)
           setContent(response[0].story)
           
@@ -44,7 +45,7 @@ function Story(){
         <div  className="story-post-heading">
 
             <section>
-                <img  src="../journal-pic2.jpg"        />
+                <img  src={`../${imageName}` }      />
             </section>
 
 

@@ -11,6 +11,7 @@ function JournalPost(){
 
     const params = useParams();
     const [title, setTitle] = useState("");
+    const [imageName, setImageName] = useState("")
     const [content, setContent] = useState("")
 
 
@@ -21,6 +22,7 @@ function JournalPost(){
         getOneJournal(params.id).then((response)=>{
          console.log(response);
          setTitle(response[0].title)
+         setImageName(response[0].imageName)
          setContent(response[0].journal);
          
        })
@@ -44,7 +46,7 @@ function JournalPost(){
             </section>
 
             <section>
-                <img  src="../journal-pic2.jpg"        />
+                <img  src= {`../${imageName}` || `../computer3.jpg`  }   />
             </section>
 
 

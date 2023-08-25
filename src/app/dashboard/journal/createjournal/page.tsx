@@ -6,6 +6,7 @@ import { Editor } from '@tinymce/tinymce-react';
 import { Editor as TinyMCEEditor } from 'tinymce';
 import PopUp from "../popup-createjournal/popup";
 import { useGlobalContext } from "@/app/context/store";
+import { FILE } from "dns";
 
 
 
@@ -33,6 +34,8 @@ function CreateJournal() {
   const {popup,setPopup} = useGlobalContext();
   const [title, setTittle] = useState("");
   const [content, setContent] = useState("");
+  const [file, setPhoto] = useState<File>();
+  const [fileName, setPhotoName] = useState<String | null>("");
 
 
   
@@ -42,6 +45,21 @@ function CreateJournal() {
     console.log(
       `location: ${document.location}, state: ${JSON.stringify(event.state)}`,
     );
+  };
+
+
+  const savePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
+
+    if (!e.target.files) return;
+    const file = e.target.files;
+  
+      console.log(file);
+      setPhoto(e.target.files[0]);
+
+      const filename = file[0].name
+      
+        setPhotoName(fileName);
+   
   };
 
 
@@ -109,6 +127,14 @@ function CreateJournal() {
             <input placeholder="Title"   onChange={(e)=>{setTittle(e.target.value)}}          />
         </div>
 
+        <form className="upload-picture">
+              Upload Journal Picture
+              <input
+                type="file"
+                onChange={ savePhoto  }
+              />
+            </form>
+
         <div>
         <Editor
          onInit={(evt, editor) => editorRef.current = editor}
@@ -145,7 +171,8 @@ function CreateJournal() {
 
       
         <PopUp title={title}
-                content={content} />  
+                content={content}
+                 file={file} />  
     
     </div>
 }

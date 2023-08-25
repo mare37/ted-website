@@ -3,6 +3,7 @@ import { useGlobalContext } from "@/app/context/store";
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
+import { log } from "console";
 
 
 
@@ -13,8 +14,9 @@ import { useRouter } from "next/navigation";
 
 
 interface Journal {
-  title: string;
-  content: string;
+  title: string
+  content: string
+  file?: File
  
 }
 
@@ -22,7 +24,7 @@ interface Journal {
 
 
 
-function PopUp ({title, content}: Journal) {
+function PopUp ({title, content,file}: Journal) {
   const router = useRouter();
 
     const {popup,setPopup} = useGlobalContext();
@@ -35,34 +37,72 @@ function PopUp ({title, content}: Journal) {
 
 
 
+    
+
+
+
+
     async function POST(title: string, content:string) {
 
 
-     
-
+      const formData = new FormData();
+           
+          //  if (!file) return;
+          //  formData.append("file", file);
+        //    formData.append("fileName", fileName);
+        console.log(file);
 
 
       setIsLoading(true);
 
       console.log(title);
       console.log(content);
-    
-    
-      const res = await fetch("http://localhost:3000/api/journals", {
-       method: 'POST',
-       headers: {
-         'Content-Type': 'application/json',
-        
-       },
-       body: JSON.stringify({ method:"POST",title:title,content:content,id:"" }),
-     })
-    
-        const response =  await res.json()
-    
-     console.log(response);
-    
 
-     if(response.journalPosted === true){
+
+
+      const res = await fetch("http://localhost:3000/api/journals", {
+        method: 'POST',
+        headers: {
+          'Content-Type': "multipart-/form-data",
+         
+        },
+        body: JSON.stringify({ method:"POST",title:title,content:content }),
+      })
+     
+         const response =  await res.json();
+         console.log(response);
+         
+
+         if(response.journalPosted === true){
+
+          console.log(response.id);
+         
+
+          if (!file) return;
+          console.log(file);
+          
+          formData.append("file", file);
+          formData.append("id", response.id);
+         formData.append("fileName", file.name);
+         formData.append("identity", "JournalUpload");
+
+          const res1 = await fetch("http://localhost:3000/api/upload", {
+            method: 'POST',
+          
+            body: formData 
+          })
+    
+          
+          const response1 =  await res1.json() 
+        
+        console.log(response1);
+
+
+        if(response1.photoUploaded === true){
+
+
+
+
           setIsLoading(false);
           setCreateStory(response.journalPosted);
      }else{
@@ -74,7 +114,25 @@ function PopUp ({title, content}: Journal) {
 
      }
     
-   
+
+         }
+
+
+     
+    
+      
+
+
+
+    
+    
+    
+    
+    
+    
+
+    
+     
      
     }
 
