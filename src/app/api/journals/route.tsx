@@ -1,16 +1,16 @@
 import { NextResponse  } from "next/server";
 import connectDb from "@/app/utils/db";
 import Journals from "@/app/Models/Journals";
-//import Journal from "@/app/dashboard/journal/page";
-//import { DummyDocument } from "@/app/Models/Journals";
-import { NextApiRequest ,  NextApiResponse  } from "next";
-import { ObjectId } from "mongoose";
+import {  NextApiRequest ,  NextApiResponse  } from "next";
 
-interface Journal {
-    title: string;
-    journal: string;
-   
-  }
+
+
+
+
+
+
+
+
 
 
   
@@ -58,12 +58,24 @@ export const POST = async (req:Request, res:any) =>{
 
     const body = await req.json();
 
-    
+   
 
-   console.log(body);   
+
+
+   
+
+
+
+
+
+
 
     if(body.method === "POST"){
 
+    
+      
+
+    
 
       try{
 
@@ -75,7 +87,8 @@ export const POST = async (req:Request, res:any) =>{
 
        const result = await Journals.create({
         title: body.title,
-        journal:body.content
+        journal:body.content,
+        imageName:""
       });
 
       console.log(result);
@@ -83,7 +96,7 @@ export const POST = async (req:Request, res:any) =>{
 
            // return res.send().json("POSTED SUCCESSFULLY");
          // return new NextResponse("POSTED SUCCESSFULLY", {status:200});
-           return new NextResponse(JSON.stringify({journalPosted:true, message:"Successfully posted"}), {status:200});
+           return new NextResponse(JSON.stringify({journalPosted:true, message:"Successfully posted", id:result._id.toString()}), {status:200});
 
 
     }catch(err){
@@ -182,7 +195,10 @@ export const POST = async (req:Request, res:any) =>{
   
 
 
-}
+} 
+
+
+
 
 
 
