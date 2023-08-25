@@ -34,7 +34,7 @@
     margin-top: 70%;
 }
 
-.sidebar div  p{
+/*.sidebar div  p{
     margin-bottom: 40px;
     color: white;
     font-size: 24px;
@@ -45,6 +45,36 @@
 .sidebar div  p  a{
     color: white;
     font-size:18px ;
+
+}*/
+
+.sidebar-link{
+
+    margin-bottom: 40px;
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.sidebar-link.active{
+    border-bottom: solid;
+    border-bottom-color: white;
+    padding: 2px 0;
+   
+}
+
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+
+.sidebar div  p  a:hover{
+    border-bottom: solid;
+    border-bottom-color: white;
+    padding: 2px 0;
+
 
 }
 

@@ -31,7 +31,7 @@ const journalsSchema = new Schema<Journal>({
     },
     imageName:{
       type:String,
-      required:true
+      
      
       
   },

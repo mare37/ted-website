@@ -1,8 +1,9 @@
 import "./Sidebar.modules.css"
 import Link from "next/link";
 import { useGlobalContext } from "@/app/context/store";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import useWindowWide from "@/app/Hooks/windowsize";
+import { usePathname } from "next/navigation";
 
 const links = [
     {
@@ -33,8 +34,25 @@ const links = [
 
 function Sidebar(){
 
+    const pathname  = usePathname();
+
     const {sidebar,setSidebar} = useGlobalContext();
     const width = useWindowWide();
+    const [dashboard, Setdashboard] = useState(pathname === "/dashboard"? true:false);
+    const [journals, SetJournal] = useState(pathname === "/dashboard/journal"? true:false);
+    const [stories, SetStories] = useState(pathname === "/dashboard/stories"? true:false);
+    const [settings, SetSettings] = useState(pathname === "/settings"? true:false);
+
+
+   
+    const handleMouse = () =>{
+
+       // Setdashboard(false)
+
+    }
+  
+
+  
   
     const handleClick = () =>{
 
@@ -56,14 +74,26 @@ function Sidebar(){
          return false})    }}   src="./cancel.png"   />
 
 
-        <div>
+        <div onMouseEnter={handleMouse}   >
                 
-                {links.map((link)=>{
+                {/*links.map((link)=>{
 
-                    return  <p><Link    onClick={handleClick}  href={link.href}>{link.link}</Link>   </p>  
+                    return  <p  className="sidebar-link"  ><Link    onClick={handleClick}  href={link.href}>{link.link}</Link>   </p>  
 
-                })}
+                })*/}
 
+
+                <p  className={dashboard? "sidebar-link active": "sidebar-link"}  ><Link    
+                            onClick={handleClick}  href={"/dashboard"}>Dashboard</Link>   </p>
+
+                <p  className={journals? "sidebar-link active": "sidebar-link"} 
+                       ><Link    onClick={handleClick}  href={"/dashboard/journal"}>Journal</Link>   </p>
+
+                <p  className={stories? "sidebar-link active": "sidebar-link"} 
+                       ><Link    onClick={handleClick}  href={"/dashboard/stories"}>Stories</Link>   </p>
+
+                <p  className={settings? "sidebar-link active": "sidebar-link"} 
+                       ><Link    onClick={handleClick}  href={"/settings"}>Settings</Link>   </p>
 
        
 
