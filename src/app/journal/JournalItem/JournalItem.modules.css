@@ -11,13 +11,20 @@
 .journal-container{
     border:solid;
     border-color:#00000008;
+    box-shadow: 0 4px 8px 0 rgba(207, 203, 203, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.journal-container:hover{
+    
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 
 }
 
 
 .journal-image{
 
-    background-image: url("../../assets/journal-pic.jpg");
+   
     background-size: cover;
     height: 200px;
    

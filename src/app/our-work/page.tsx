@@ -21,9 +21,9 @@ function OurWork(){
 
 
         <div className="our-work-individual"   >
-                <div className="our-work-individual-pic"  >
 
-                </div>
+                <img className="our-work-individual-pic" src="./man.jpg" />
+                
                 <div className="our-work-individual-text"    >
                     <h2>Teddy Ochieng'</h2>
                     <p>Founder</p>
@@ -33,12 +33,10 @@ function OurWork(){
 
 
             <div className="our-work-individual"   >
-                <div className="our-work-individual-pic"  >
-
-                </div>
+            <img className="our-work-individual-pic" src="./man2.jpg" />
                 <div className="our-work-individual-text"    >
-                    <h2>Teddy Ochieng'</h2>
-                    <p>Founder</p>
+                    <h2>John Doe</h2>
+                    <p>Director</p>
 
                 </div>
             </div>

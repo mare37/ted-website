@@ -59,7 +59,8 @@ export const POST = async (req:Request,res:Response)=>{
       const result = await Stories.create({
         title: body.title,
         tag:body.tag,
-        story:body.content
+        story:body.content,
+        imageName:"0"
       });
 
       console.log(result);

@@ -131,11 +131,20 @@ z-index: -5;
 
 @media (min-width: 1200px){
 
+  .where-we-work{
+   
+  
+  
+    margin-top: -150px;
+    
+   
+  }
+
  
 
   .image-container{
 
-    height: 100vh;
+    height: 80vh;
   
    
   
@@ -144,7 +153,7 @@ z-index: -5;
 
   .image h2{
     
-    top: 85%;
+    top: 55%;
     
    
    

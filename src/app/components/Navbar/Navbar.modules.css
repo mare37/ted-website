@@ -131,6 +131,7 @@
 
         background-color:rgb(253, 248, 233);
         height: 90px;
+        box-shadow:0 2px 4px 0 rgba(207, 203, 203, 0.2), 0 6px 20px 0 rgba(177, 177, 177, 0.19) ;
 
     
     }

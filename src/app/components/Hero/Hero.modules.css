@@ -30,11 +30,13 @@
 .hero-container p{
 
     top:50%;
+    left:3%;
     position: absolute;
     padding: 15px;
     color: white;
-    font-size: 30px;
-    line-height: 35px;
+    font-size: 4rem;
+    line-height: 4.5rem;
+    
 }
 
 .hero-container::after {
