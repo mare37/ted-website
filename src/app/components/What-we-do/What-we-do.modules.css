@@ -241,8 +241,13 @@
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
-        padding: 0 200px;
+        padding: 0 100px;
     }
+
+    .text-wrapper{
+        padding: 100px 100px;
+     
+     }
 
     .our-goals{
 
@@ -261,18 +266,21 @@
        .our-goals p{
         color:rgb(132, 132, 76);
         font-size: 18px;
+        font-weight: 700;
        } 
 
        .our-goals h1{
-        color:rgba(188, 118, 92);
-        font-size: 4rem;
+        color:rgb(192, 85, 46);
+        font-size: 3rem;
+        margin-bottom: 0px;
       
        }
 
        .our-goals h2{
        
         font-size: 15px;
-        color:rgb(97, 97, 36)   ;
+        color:rgb(83, 83, 15)   ;
+       
        }
 
        
@@ -301,8 +309,8 @@
       /*  width: 450px;
         height: 350px;
         margin: 0 0;*/
-        width: 600px;
-        height: 380px;
+        width: 500px;
+        height: 300px;
         margin: 40px 0;
 
 
@@ -313,6 +321,11 @@
     
        
         }
+
+        .our-goals div{
+           
+            margin-top: 20px;
+           }
 
 
 

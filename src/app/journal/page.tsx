@@ -5,6 +5,7 @@ import { ObjectId } from "mongoose";
 interface Journal {
     id: ObjectId,
     title: string;
+    imageName:string
     journal: string;
    
   }
@@ -56,6 +57,7 @@ async function Blog (){
                   key={key} 
                   id={item.id}
                   title={item.title}
+                  imageName={item.imageName}
                   journal={item.journal}
 
           />

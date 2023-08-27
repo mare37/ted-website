@@ -10,19 +10,19 @@ function WhereWeWork(){
 
            <div  className="where-we-work-scroll">
             <div>
-                <h1>kenya</h1>
+                <h1>HomaBay</h1>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.    </p>
                  
             </div>
 
             <div>
-                <h1>kenya</h1>
+                <h1>Kakamega</h1>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.    </p>
                  
             </div>
 
             <div>
-                <h1>kenya</h1>
+                <h1>Meru</h1>
                 <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim.    </p>
                  
             </div>

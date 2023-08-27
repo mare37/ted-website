@@ -1,8 +1,33 @@
 
 import Hero3 from "./Hero/Hero";
 import "./page.modules.css"
+import { getStories } from "../utils/stories";
+import { ObjectId } from "mongoose";
 
-function Impact (){
+
+interface Story {
+    _id: ObjectId,
+    title: string
+    tag:string,
+    story: string
+    imageName:string,
+    identity:string
+   
+  }
+
+
+
+  
+  
+
+
+async function Impact (){
+
+
+    const response =  await getStories()
+
+    console.log(response);
+    
 
     return <div className="impact"  >
 
@@ -15,69 +40,46 @@ function Impact (){
 
         <div className="impact-article-container"  >
 
-            <article  className="article"  >
-
-                <div>
-                    <img  className="impact-top-image"  src="./person-farm.jpg"  />
-                </div>
-
-                <div  className="impact-text"  >
-
-                    <p>EMPLOYEE STORY</p>
-                    <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa   </h3>
-                    <div> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec. </div>
-
-                    
-                </div>
-
-                <p>Click here to continue reading....</p>
 
 
-            </article>
+            {response.map((item: Story, key: number)=>{
 
 
+                return      <article key={key} className="article"  >
 
-            <article    className="article"  >
+                              
 
-                <div>
-                    <img  className="impact-top-image"  src="./person-farm.jpg"  />
-                </div>
+                                <div>
+                                    <img  className="impact-top-image"  src={`./${item.imageName}`}  />
+                                </div>
 
-                <div  className="impact-text"  >
+                                <div  className="impact-text"  >
 
-                    <p>STORY</p>
-                    <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa   </h3>
-                    <div> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,  </div>
+                                    <p>{item.tag}</p>
+                                    <h3>{item.title}</h3>
+                                    <div dangerouslySetInnerHTML=
+                                    {{ __html: item.story.length > 150? item.story.slice(0,150) + "...": item.story }}/>
+                                    
+                                </div>
 
-                    
-                </div>
-
-                <p>Click here to continue reading....</p>
+                                <p>Click here to continue reading....</p>
 
 
-            </article>
+                              
+                              
+
+
+                            </article>
 
 
 
-            <article    className="article"     >
 
-                <div>
-                    <img  className="impact-top-image"  src="./person-farm.jpg"  />
-                </div>
+            }).reverse().slice(0,3)}
 
-                <div  className="impact-text"  >
-
-                    <p>NEWS UPDATE</p>
-                    <h3>Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa   </h3>
-                    <div> Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo,  </div>
-
-                    
-                </div>
-
-                <p>Click here to continue reading....</p>
+          
 
 
-            </article>
+         
          
 
 
