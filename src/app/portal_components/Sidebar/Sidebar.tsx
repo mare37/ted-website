@@ -42,6 +42,7 @@ function Sidebar(){
     const [journals, SetJournal] = useState(pathname === "/dashboard/journal"? true:false);
     const [stories, SetStories] = useState(pathname === "/dashboard/stories"? true:false);
     const [settings, SetSettings] = useState(pathname === "/settings"? true:false);
+  const  [ourLocations, SetOurLocations] = useState(pathname === "/dashboard/locations"? true:false);
 
 
    
@@ -91,6 +92,9 @@ function Sidebar(){
 
                 <p  className={stories? "sidebar-link active": "sidebar-link"} 
                        ><Link    onClick={handleClick}  href={"/dashboard/stories"}>Stories</Link>   </p>
+
+                <p  className={ourLocations? "sidebar-link active": "sidebar-link"} 
+                       ><Link    onClick={handleClick}  href={"/dashboard/locations"}>Our Locations</Link>   </p>
 
                 <p  className={settings? "sidebar-link active": "sidebar-link"} 
                        ><Link    onClick={handleClick}  href={"/settings"}>Settings</Link>   </p>
