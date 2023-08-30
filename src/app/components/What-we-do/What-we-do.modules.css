@@ -22,7 +22,7 @@
 .text-wrapper p{
     line-height: 30px;
     font-size: 22px;
-    color:rgba(188, 118, 92);
+    color:rgb(209, 65, 13);
 }
 
   .what-we-do img {
@@ -236,12 +236,14 @@
 
   @media (min-width: 1200px){
 
+    
+
     .our-goals-container{
 
         display: flex;
         flex-direction: row-reverse;
         justify-content: space-between;
-        padding: 0 100px;
+        padding: 0 200px;
     }
 
     .text-wrapper{
@@ -336,6 +338,8 @@
   @media (min-width: 1400px){
 
     .what-we-do{
+
+
   
         
        

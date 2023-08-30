@@ -91,6 +91,14 @@
      }
 
 
+     .how-we-do-it h2{
+
+       
+        margin-bottom: 40px;
+    
+    }
+
+
      .how-we-do-it div{
 
         display: flex;
@@ -103,6 +111,7 @@
      .how-we-do-it img{
         width: 350px;
         margin-bottom: 20px;
+        border-radius: 40%;
     }
 
     .how-we-do-it p {
@@ -115,8 +124,8 @@
     justify-content: center;
    
     font-size: 22px;
-    margin-left: 90px;
-    text-align:left;
+    margin-left: 150px;
+    text-align:center;
     margin-top: 39px;
     }
      
