@@ -1,0 +1,152 @@
+
+
+
+
+export async function postLocation (town:string,county:string,description:string,
+                                 numberOftrees:string,numberOfIndividuals:string){
+
+    
+    try{
+
+        const res = await fetch("http://localhost:3000/api/locations", {
+           method: 'POST',
+           headers: {
+             'Content-Type': 'application/json',
+            
+           },
+           body: JSON.stringify({ location: county,content:description,
+                                 numberOftrees:numberOftrees, numberOfIndividuals:numberOfIndividuals }),
+         })
+         
+            const response =  await res.json()
+        
+         console.log(response);  
+
+         if(response.locationPosted === true){
+          
+
+           return true
+           }else{
+
+            return false
+   
+              }
+
+
+
+
+
+    }catch(err){
+        console.log(err);
+        return false
+        
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+export const getLocations = async ()=>{
+    
+   
+
+     try{
+      const res = await fetch("http://localhost:3000/api/locations", {cache :"no-store"});
+      return res.json();
+
+      if(!res.ok){
+      //  setIsLoading(false);
+     //   setError(true)
+         throw new Error("Error")
+          
+      }
+
+
+     }catch(error){
+
+     // setIsLoading(false);
+     // setError(true)
+      console.log(error);
+      
+      throw new Error("Error")
+
+      
+    
+      
+     }
+
+   
+    
+   
+    //const data =  await res.json();
+
+   // console.log(data);
+
+    
+
+   
+
+   
+
+
+}
+
+
+
+
+export async function deleteLocation  (id:string){  
+ 
+  console.log(id);
+
+  
+  
+  try{
+    const res = await fetch(`http://localhost:3000/api/locations/${id}`,  {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+      
+      },
+      
+    });
+
+        const data = await res.json();
+        console.log(data);
+        console.log(data.result.acknowledged);
+
+        // setJournalId(true)
+        //location.reload() 
+        if(data.result.acknowledged === true){
+          
+          console.log(data);
+          return true
+        }else{
+          return false
+        }
+
+  }catch(err){
+    throw new Error("Error")
+  }
+
+
+}
+
+
+   

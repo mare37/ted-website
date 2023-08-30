@@ -130,6 +130,22 @@ export default function RootLayout({
               </html>
             )
 
+            case "/dashboard/locations/createlocation":
+              return (
+                <html lang="en">
+              <body     className={inter.className}    >
+                    <GlobalContextProvider>
+                  
+                    
+                      {children}
+                    
+                  
+                    </GlobalContextProvider>
+                    </body>  
+                  
+                </html>
+              )
+
 
         default:
           return (

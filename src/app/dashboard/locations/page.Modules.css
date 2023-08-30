@@ -98,7 +98,7 @@
 
 
 
-.create-new-story{
+.create-new-location{
     padding: 10px 20px;
     margin-bottom: 20px;
     border-radius: 8px;
@@ -122,10 +122,8 @@
     
 }
 
-
-.table-heading-title{
-    flex: 0.4;
-    padding: 0 10px;
+.table-heading-no{
+    flex: 0.2;
   
     border-right-color: rgb(190, 182, 182);
     border-right: solid;
@@ -141,8 +139,8 @@
 
 
 
-.table-heading-tag{
-    flex: 0.3;
+.table-heading-title{
+    flex: 0.5;
     background-color: #335f68;
     border-right-color: rgb(190, 182, 182);
     border-right: solid;
@@ -166,10 +164,208 @@
    
 }
 
-a{
-    text-decoration:  none;
+a {
+    text-decoration: none;
     color: white;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.table-item{
+    display: flex;
+    flex-direction: row;
+   
+    height: 80px;
+    
+}
+
+
+
+.table-item-no{
+    flex: 0.2;
+    
+   
+    height: 100%;
+    border-right: solid;
+    border-right-color: rgb(190, 182, 182);
+    border-right-width: 1px;
+
+    border-bottom: solid;
+    border-bottom-color: rgb(190, 182, 182);
+    border-bottom-width: 1px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+   
+}
+
+.table-item-title{
+    flex: 0.5;
+    border-left-color: rgb(142, 50, 50);
+    border-right: solid;
+    height: 100%;
+    padding: 7px;
+
+    border-right: solid;
+    border-right-color: rgb(190, 182, 182);
+    border-right-width: 1px;
+
+    border-bottom: solid;
+    border-bottom-color: rgb(190, 182, 182);
+    border-bottom-width: 1px;
+
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.table-item-buttons{
+    flex: 0.3;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    border-bottom: solid;
+    border-bottom-color: rgb(190, 182, 182);
+    border-bottom-width: 1px;
+   
+}
+
+.tableItem-edit{
+
+    margin-bottom: 10px;
+    width: 50px;
+    background-color: green;
+    color: white;
+    border: none;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+.tableItem-delete{
+    margin-bottom: 10px;
+    width: 50px;
+    background-color:red;
+    color: white;
+    border: none;
+    padding: 3px;
+    border-radius: 5px;
+}
+
+
+@media (min-width: 768px){
+    
+
+    .table-item-no{
+        font-size: 20px;
+    }
+    
+    .table-item-title{
+
+        font-size: 20px;
+
+
+    }
+
+    .table-item-buttons{
+
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .tableItem-edit{
+        width: 80px;
+        padding: 8px;
+    }
+
+    .tableItem-delete{
+
+        width: 80px;
+        padding: 8px;
+    }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 @media (min-width: 768px){

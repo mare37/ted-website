@@ -55,6 +55,9 @@ export const POST = async (req:Request, res:any) =>{
 
     const body = await req.json();
 
+    console.log(body);
+    
+
    
 
 
@@ -73,7 +76,7 @@ export const POST = async (req:Request, res:any) =>{
         content:body.content,
         numberOftrees:body.numberOftrees,
         numberOfIndividuals:body.numberOfIndividuals,
-        imageName:body.imageName
+        imageName:"0"
       });
 
       console.log(result);
