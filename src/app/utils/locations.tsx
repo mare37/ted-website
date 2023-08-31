@@ -14,7 +14,7 @@ export async function postLocation (town:string,county:string,description:string
              'Content-Type': 'application/json',
             
            },
-           body: JSON.stringify({ location: county,content:description,
+           body: JSON.stringify({ town:town,county: county,content:description,
                                  numberOftrees:numberOftrees, numberOfIndividuals:numberOfIndividuals }),
          })
          
@@ -111,6 +111,56 @@ export const getLocations = async ()=>{
 
 
 
+
+
+export const getOneLocation = async (id:string)=>{
+    
+   
+
+  try{
+   const res = await fetch(`http://localhost:3000/api/locations/${id}`, {cache :"no-store"});
+   return res.json();
+
+   if(!res.ok){
+   //  setIsLoading(false);
+  //   setError(true)
+      throw new Error("Error")
+       
+   }
+
+
+  }catch(error){
+
+  // setIsLoading(false);
+  // setError(true)
+   console.log(error);
+   
+   throw new Error("Error")
+
+   
+ 
+   
+  }
+
+
+ 
+
+ //const data =  await res.json();
+
+// console.log(data);
+
+ 
+
+
+
+
+
+
+}
+
+
+
+
 export async function deleteLocation  (id:string){  
  
   console.log(id);
@@ -146,7 +196,51 @@ export async function deleteLocation  (id:string){
   }
 
 
+} 
+
+
+
+
+
+
+
+export async function editLocation(town:string,county:string,description:string,
+                           numberOftrees:string,numberOfIndividuals:string, id:string) {
+
+ 
+
+  
+  const res = await fetch("http://localhost:3000/api/locations", {
+   method: 'PUT',
+   headers: {
+     'Content-Type': 'application/json',
+    
+   },
+   body: JSON.stringify({ town:town,county:county,description:description,
+                           numberOftrees:numberOftrees,numberOfIndividuals:numberOfIndividuals,id:id}),
+ })
+
+    const response =  await res.json()
+
+ console.log(response);
+
+
+ if(response.locationEdited === true){
+
+  return true
+     
+ }else{
+
+
+   return false
+
+
+ }
+
+  
+ 
 }
+
 
 
    

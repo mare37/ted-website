@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 
 
 import  {usePost} from "@/app/Hooks/stories";
+import Upload from "@/app/utils/upload";
 
 
 interface Journal {
@@ -55,6 +56,8 @@ function PopUp (props: any) {
 
 
         console.log(response);
+
+        Upload(props.file, response.id,"StoriesUpload");
                                      
 
         
@@ -102,9 +105,23 @@ function PopUp (props: any) {
       }
 
 
-      if(props.function.name === "EditStory"){
+      if(props.function.name === "editLocation"){
         console.log("Yes Edit");
-        props.function(props.title,props.tag, props.content, props.id)
+
+        console.log(props.description);
+        
+        setIsLoading(true);
+           const  response = await   props.function(props.town,props.county,props.description,
+                                       props.numberOftrees,props.numberOfIndividuals, props.id)
+
+            console.log(response);
+            if(response){
+              setCreateLocation(true)
+              }else{
+                setIsLoading(false);
+                setError(true)
+              }
+            
         
       }
 

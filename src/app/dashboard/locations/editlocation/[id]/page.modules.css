@@ -1,0 +1,77 @@
+.create-location{
+
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+   min-height: 100vh;
+    
+    padding: 5%;
+}
+
+.create-location-title input{
+
+    width:  70%;
+    height: 80px;
+    border:none;
+    font-size: 50px;
+    padding: 2%;
+    
+
+    border-bottom: solid;
+    border-bottom-width: 1px;
+    outline: none;
+    margin-bottom: 40px;
+}
+
+
+
+.create-location-title input::placeholder{
+
+    
+    font-size: 50px;
+
+}
+
+
+
+.create-location-description{
+
+    padding: 20px;
+    height: 500px;
+   
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+
+
+
+
+.create-location-log-button{
+    margin-top: 30px;
+    width: 200px;
+    padding: 12px;
+    border-radius: 20px;
+    background-color: #335f68;
+    color: rgb(246, 244, 237);
+    font-weight: 700;
+    border: none;
+}
+
+.create-location-button{
+    margin-top: 70px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+
+.create-location-button  button {
+     width: 200px;
+    padding: 12px;
+    border-radius: 20px;
+    background-color: #335f68;
+    color: rgb(246, 244, 237);
+    font-weight: 700;
+    border: none;
+}
