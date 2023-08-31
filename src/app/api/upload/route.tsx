@@ -1,11 +1,12 @@
 import { NextRequest } from "next/server"
 import { NextResponse } from "next/server"
-import formidable from "formidable"
+
 import { buffer } from "stream/consumers"
 import path from "path"
 import { join } from "path"
 import Journals from "@/app/Models/Journals"
 import Stories from "@/app/Models/Stories"
+import locations from "@/app/Models/locations"
 
 import { writeFile } from "fs/promises"
 
@@ -92,7 +93,27 @@ export const config = {
     
              console.log(result);
              
-             return new NextResponse(JSON.stringify({photoUploaded:true, message:"Successfully uploaded Journal photo"}), {status:200});
+             return new NextResponse(JSON.stringify({photoUploaded:true, message:"Successfully uploaded Story photo"}), {status:200});
+
+
+      }
+
+
+      if(identity === "locationUpload"){
+
+        console.log(identity);
+        
+
+        const result = await locations.updateOne(
+            { _id: id  },
+            {
+                imageName:fileName
+           
+             },{strict:false});
+    
+             console.log(result);
+             
+             return new NextResponse(JSON.stringify({photoUploaded:true, message:"Successfully uploaded Location photo"}), {status:200});
 
 
       }

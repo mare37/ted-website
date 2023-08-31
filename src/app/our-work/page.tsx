@@ -1,6 +1,43 @@
 import "./page.modules.css"
+import { ObjectId } from "mongoose";
 
-function OurWork(){
+import { getLocations } from "../utils/locations";
+
+interface location{
+    _id:ObjectId
+    town:string
+    county:string
+    content:string
+    numberOftrees:string
+    numberOfIndividuals:string
+    imageName:string
+}
+
+
+
+
+
+async function OurWork(){
+
+
+    const locations = await getLocations()
+
+    console.log(locations);
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     return <div  className="our-work" >
@@ -53,61 +90,49 @@ function OurWork(){
 
     <div className="our-current-projects-container">
 
-    <div className="our-current-projects-item"  >
 
-<section className="our-current-projects-item-text"  >
-    <h1>
-        Homabay
-    </h1>
+        {locations.reverse().map((item:location,key:number)=>{
 
-    <p>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
+            return  <div className="our-current-projects-item"  >
 
-    </p>
+                        <section className="our-current-projects-item-text"  >
+                            <h1>
+                                {`${item.town}, ${item.county}`}
+                            </h1>
 
-    <h3>At a glance</h3>
-    <p> <span> 1000+  </span>  trees planted</p>
-    <p> <span> 15+  </span> individuals employed</p>
+                            <p>
+                            {item.content}
 
-</section>
-<section className="our-current-projects-item-pic"    >
-    <figure>
+                            </p>
 
-    </figure>
+                            <h3>At a glance</h3>
+                            <p> <span> {`${item.numberOftrees}+`}  </span>  trees planted</p>
+                            <p> <span>{`${item.numberOfIndividuals}+`}</span> individuals employed</p>
 
-</section>
+                        </section           >
 
-</div>
+                        <section  className="our-current-projects-item-pic"        >
+
+                            <img   src={`../${item.imageName.length === 1? "../men-digging.jpg": item.imageName }`}                />
 
 
-<div className="our-current-projects-item"  >
+                        </section>
+                      
+                            
 
-<section className="our-current-projects-item-text"  >
-    <h1>
-        Homabay
-    </h1>
+                        
 
-    <p>
-    Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem
-
-    </p>
-
-    <h3>At a glance</h3>
-    <p> <span> 1000+  </span>  trees planted</p>
-    <p> <span> 15+  </span> individuals employed</p>
-
-</section>
-<section className="our-current-projects-item-pic"    >
-    <figure>
-
-    </figure>
-
-</section>
-
-</div>
+                    </div>
 
 
 
+
+        })}
+
+   
+
+
+   
 
 
 

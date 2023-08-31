@@ -46,7 +46,7 @@ function PopUp (props: any) {
         const response = await props.function(props.town,props.county,props.description,
                                      props.numberOftrees, props.numberOfIndividuals)
 
-        if(response){
+        if(response.locationPosted){
           setIsLoading(false);
           setCreateLocation(true)
         }else{
@@ -55,20 +55,23 @@ function PopUp (props: any) {
         }
 
 
-        console.log(response);
+        console.log(response);  
 
-        Upload(props.file, response.id,"StoriesUpload");
+        Upload(props.file, response.response.id,"locationUpload");
+
+      
+      
                                      
 
         
-          /*const formData = new FormData();
+       /*   const formData = new FormData();
           const file = props.file
 
           if (!file) return;
           console.log(file);
           
           formData.append("file", file);
-          formData.append("id", response.id);
+          formData.append("id", response.response.id);
          formData.append("fileName", file.name);
          formData.append("identity", "locationUpload");
 
@@ -84,6 +87,11 @@ function PopUp (props: any) {
         console.log(response1);*/
       
       }
+      
+
+
+
+
 
       if(props.function.name === "deleteLocation"){
         console.log(props.id);
