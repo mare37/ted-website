@@ -3,7 +3,7 @@ import { useGlobalContext } from "@/app/context/store";
 import { useState } from "react";
 
 import { useRouter } from "next/navigation";
-
+import Upload from "@/app/utils/upload";
 
 import  {usePost} from "@/app/Hooks/stories";
 
@@ -40,29 +40,8 @@ function PopUp (props: any) {
           const file = props.file
 
           if (!file) return;
-          console.log(file);
-          
-          formData.append("file", file);
-          formData.append("id", response.id);
-         formData.append("fileName", file.name);
-         formData.append("identity", "StoriesUpload");
-
-          const res1 = await fetch("http://localhost:3000/api/upload", {
-            method: 'POST',
-          
-            body: formData 
-          })
-    
-          
-          const response1 =  await res1.json() 
-        
-        console.log(response1);
-        
-
-
-
-
-       
+          Upload(file, response.id,"StoriesUpload")
+      
       }
 
       if(props.function.name === "deleteStory"){

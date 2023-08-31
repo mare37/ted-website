@@ -80,6 +80,11 @@ function CreateLocation() {
     }*/
 
 
+    if(description.length === 200){
+
+    }
+
+
     
     
 
@@ -104,7 +109,7 @@ function CreateLocation() {
             </form>
 
 
-            <textarea placeholder="Description"  onChange={(e)=>{setDescription(e.target.value)}}   />
+            <textarea  className="create-location-description" maxLength={260} placeholder="Description"  onChange={(e)=>{setDescription(e.target.value)}}   />
 
             <div>
             <input placeholder="Trees planted?"   onChange={(e)=>{setTrees(e.target.value)}} /> 

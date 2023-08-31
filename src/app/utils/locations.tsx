@@ -25,10 +25,10 @@ export async function postLocation (town:string,county:string,description:string
          if(response.locationPosted === true){
           
 
-           return true
+           return {locationPosted:true,response}
            }else{
 
-            return false
+            return {locationPosted:false,response}
    
               }
 

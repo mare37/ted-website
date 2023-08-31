@@ -67,9 +67,7 @@
 
 .our-work-individual-pic{
 
-       background-image: url("../assets/men-digging.jpg");
-    background-size:cover;
-    position: relative;
+   
     height: 150px; 
     width:150px;
     border-radius:50%;
@@ -163,6 +161,19 @@
 
 
 }
+
+.our-current-projects-item-pic img{
+
+   
+    
+    height: 90px; 
+    width:100%;
+    
+
+
+}
+
+
 
 .our-current-projects-item-text h1{
 
@@ -261,7 +272,7 @@
     }
 
 
-    .our-current-projects-item-pic figure {
+    .our-current-projects-item-pic img{ 
         height: 190px;
        
     }
