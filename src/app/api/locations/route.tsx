@@ -72,7 +72,8 @@ export const POST = async (req:Request, res:any) =>{
        //   console.log(journals);
 
        const result = await locations.create({
-        location: body.location,
+        town: body.town,
+        county:body.county,
         content:body.content,
         numberOftrees:body.numberOftrees,
         numberOfIndividuals:body.numberOfIndividuals,
@@ -110,6 +111,9 @@ export const PUT = async (req: Request,res: NextApiResponse) =>{
 
 
   const body = await req.json();
+
+        console.log(body);
+        
      
 
       try{
@@ -119,22 +123,23 @@ export const PUT = async (req: Request,res: NextApiResponse) =>{
          const result = await locations.updateOne(
           { _id:body.id },
           {
-            location: body.location,
-            content:body.content,
+            town: body.town,
+            county:body.county,
+            content:body.description,
             numberOftrees:body.numberOftrees,
             numberOfIndividuals:body.numberOfIndividuals,
-            imageName:body.imageName
+            imageName:"0"
        });
  
        console.log(result);
        
 
-     return new NextResponse(JSON.stringify({result:result}), {status:200});
+     return new NextResponse(JSON.stringify({locationEdited:true,result:result}), {status:200});
 
 
      }catch(err){
        
-         return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
+         return new NextResponse(JSON.stringify({locationEdited:false, message:"Server Error.Unable to post journal"}), {status:500});
          
      }
 

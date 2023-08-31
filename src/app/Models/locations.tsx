@@ -4,7 +4,8 @@ const {Schema} = mongoose;
 
 
 interface Location {
-    location: string
+    town: string
+    county:string
     content:string
     numberOftrees: Number
     numberOfIndividuals: Number
@@ -20,10 +21,15 @@ interface Location {
   }*/
 
 const locationSchema = new Schema<Location>({
-    location:{
+    town:{
         type:String,
         required:true
     },
+
+    county:{
+      type:String,
+      required:true
+  },
 
     content:{
       type:String,

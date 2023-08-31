@@ -30,7 +30,8 @@ import PopUp from "./popup/popup"
 
 interface location{
     _id:ObjectId
-    location:string
+    town:string
+    county:string
     content:string
     numberOftrees:string
     numberOfIndividuals:string
@@ -66,7 +67,7 @@ function Locations (){
 
     },[])
 
-
+    //<Link href={`/dashboard/journal/editjournal/${id.toString()}`}>Edit</Link> 
 
     return <div>
 
@@ -92,16 +93,16 @@ function Locations (){
 
 
 
-                {locations.map((item:location,key)=>{
+                {locations.map((item:location,key)=>{ 
 
 
                     return  <div  key={key}   className="table-item"  >
                                 <span className="table-item-no">{counter++}</span>
-                                <span       className="table-item-title" >{item.location}</span>
+                                <span       className="table-item-title" >{`${item.town}, ${item.county}`}</span>
                                 <span className="table-item-buttons"> 
-                                <button className="tableItem-edit">Edit   </button>
+                                <button className="tableItem-edit">  <Link href={`/dashboard/locations/editlocation/${item._id.toString()}`}>Edit</Link>   </button>
                                 
-                                <button className="tableItem-delete"  onClick={()=>{ setPopup(true); setLocationId(item._id.toString()); setLocationName(item.location)  }}  >Delete</button>  </span>
+                                <button className="tableItem-delete"  onClick={()=>{ setPopup(true); setLocationId(item._id.toString()); setLocationName(`${item.town}, ${item.county}`)  }}  >Delete</button>  </span>
                             </div>
 
 
