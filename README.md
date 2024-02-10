@@ -56,6 +56,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ##Screen shots
 
 ![Screenshot (15)](https://github.com/mare37/ted-website/assets/83783345/c6675eaf-9bbe-4b42-bbbf-d015cac26d66)
+![Screenshot (19)](https://github.com/mare37/ted-website/assets/83783345/db478916-3928-4ef0-a6ed-5d4548b556fe)
+![Screenshot (20)](https://github.com/mare37/ted-website/assets/83783345/fb9155b8-0a97-4a8f-b38d-a0e9b71b152f)
+![Screenshot (16)](https://github.com/mare37/ted-website/assets/83783345/4fb23a7a-acbb-4cef-865d-886a8dfa7018)
+![Screenshot (12)](https://github.com/mare37/ted-website/assets/83783345/330d63f5-f939-4acb-9798-9cdab67a37f4)
+![Screenshot (13)](https://github.com/mare37/ted-website/assets/83783345/f5a29dfd-76d1-4de0-9099-8d176e550722)
+![Screenshot (21)](https://github.com/mare37/ted-website/assets/83783345/d55d46d3-e536-40eb-ad01-e84387de674e)
+
 
 
 
