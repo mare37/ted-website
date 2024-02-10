@@ -2,7 +2,7 @@
 
 import { useEffect, useRef ,useState} from "react";
 import "./page.modules.css"
-import PopUp from "../../popup/popup";
+import PopUp from "../../../popup/popup";
 import { useGlobalContext } from "@/app/context/store";
 import { FILE } from "dns";
 import { postLocation } from "@/app/utils/locations";

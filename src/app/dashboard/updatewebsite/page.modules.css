@@ -1,0 +1,324 @@
+
+
+.update-website{
+
+     padding-top: 90px;
+     margin: 0 20px;
+}
+
+
+.home-page {
+
+    margin-bottom: 50px;
+}
+
+
+
+.home-page h1{
+    margin-bottom: 30px;
+
+
+}
+
+
+
+
+.home-page h4 {
+    margin-bottom: 20px
+
+
+}
+
+.home-page-mainheading {
+    margin-bottom: 25px;
+    width:70%;   
+    height: 60px;
+
+    margin: 5px;
+    padding: 5px;
+    outline: none;
+    border-color: rgb(243, 243, 243);
+    
+
+
+}
+
+.home-page-mainheading.active{
+     
+   
+    border-color: rgb(109, 92, 92);
+    border-width: 3px;
+
+}
+
+
+
+
+.home-page-what-we-do{
+
+    margin-bottom: 25px;
+    width:70%;   
+    height: 60px;
+
+    margin: 5px;
+    padding: 5px;
+
+    outline: none;
+    border-color: rgb(243, 243, 243);
+
+
+}
+
+
+.home-page-what-we-do.active{
+
+    border-color: rgb(109, 92, 92);
+    border-width: 3px;
+
+
+}
+
+.updatewebsite-ourgoals{
+
+    margin: 50px 0;
+}
+
+.updatewebsite-ourgoals div{
+
+    margin-bottom: 10px;
+
+
+}
+
+.updatewebsite-ourgoals input{
+
+    width: 90px;
+    padding: 4px;
+    margin: 5px;
+}
+
+
+
+.how-we-do-it-text{
+
+    margin-bottom: 25px;
+    width:70%;   
+    height: 60px;
+
+    margin: 5px;
+    padding: 5px;
+
+
+}
+
+
+
+
+
+
+.updatewebsite-how-you-can-help{
+
+   margin: 50px 0;
+}
+
+.updatewebsite-how-you-can-help input{
+
+   height: 60px;
+   margin-bottom: 10px;
+ }
+
+
+ .summary{
+
+    margin-bottom: 25px;
+    width:70%;   
+    height: 60px;
+
+    margin: 5px;
+    padding: 5px;
+}
+
+
+.donors{
+
+    margin-bottom: 25px;
+    width:50%;   
+    height: 60px;
+
+    margin: 5px;
+    padding: 5px;
+
+
+}
+
+
+
+
+
+ .updatewebsite-ourwork{
+
+    margin-bottom: 70px;
+
+
+
+ }
+
+
+ .updatewebsite-ourwork h1{
+
+    margin-bottom: 30px;
+
+
+
+ }
+
+
+ .updatewebsite-ourwork-heading{
+    margin: 5px;
+    padding: 5px;
+
+    width: 70%;
+    height: 30px;
+
+
+}
+
+
+.updatewebsite-ourwork-text{
+
+    width: 100%;
+    height: 80px;
+
+}
+
+
+
+
+
+.updatewebsite-why-reafforestration-page{
+
+    margin-bottom: 50px;
+
+
+} 
+
+.updatewebsite-why-reafforestration-page h1{
+
+    margin-bottom: 30px;
+
+
+} 
+
+
+.why-reafforestration-heading{
+    margin: 5px;
+    padding: 5px;
+
+    width: 70%;
+    height: 30px;
+
+}
+
+
+.why-reafforestration-text{
+
+    width: 100%;
+    height: 80px;
+
+
+
+}
+
+
+.updatewebsite-contact-us{
+
+    margin-bottom: 150px;
+}
+
+
+.updatewebsite-contact-us h1{
+
+    margin-bottom: 30px;
+}
+
+
+.updatewebsite-contact-us p{
+
+    margin-top: 20px;
+}
+
+
+.updatewebsite-contact-us textarea{
+
+    margin: 5px;
+    padding: 5px;
+
+    width: 100%;
+    height: 50px;
+
+
+}
+
+
+.updatewebsite-contact-us   input{
+
+    width: 70%;
+    height: 30px;
+
+
+}
+
+@media (min-width: 1024px){
+
+    .update-website{
+
+        padding: 90px  200px;
+        
+   }
+
+   .home-pagetextarea{
+   
+    width: 100%;
+    padding: 10px;
+
+    height: 150px;
+    font-size: 18px;
+
+
+}
+
+.home-page-mainheading{
+
+    width: 50%;
+    padding: 10px;
+
+    height: 50px;
+    font-size: 18px;
+}
+
+
+.home-page-what-we-do{
+
+    width: 100%;
+    height: 150px;
+
+
+
+}
+
+
+
+.how-we-do-it-text{
+
+   width: 100%;
+   height: 150px;
+   font-size:18px;
+   margin-bottom: 30px;
+
+}
+
+
+
+
+
+}

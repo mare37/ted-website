@@ -1,76 +1,58 @@
-'use client'
+"use client";
 
-import { useRef ,useState} from "react";
-import "./page.modules.css"
-import { Editor } from '@tinymce/tinymce-react';
-import { Editor as TinyMCEEditor } from 'tinymce';
-import PopUp from "../popup-createjournal/popup";
+import { useRef, useState } from "react";
+import "./page.modules.css";
+import { Editor } from "@tinymce/tinymce-react";
+import { Editor as TinyMCEEditor } from "tinymce";
+//import PopUp from "../popup-createjournal/popup";
+//import PopUp from "../popup/popup";
+
+import PopUp from "../../popup/popup";
+
+import { postJournal } from "@/app/utils/journal";
 import { useGlobalContext } from "@/app/context/store";
 import { FILE } from "dns";
 
-
-
-
 export async function POST() {
   const res = await fetch("http://localhost:3000/api/journals", {
-   method: 'POST',
-   headers: {
-     'Content-Type': 'application/json',
-    
-   },
-   body: JSON.stringify({ time: new Date().toISOString() }),
- })
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({ time: new Date().toISOString() }),
+  });
 }
 
-
-
-
-
-
 function CreateJournal() {
-
-  
   const [contentSaved, setContentSaved] = useState(false);
-  const {popup,setPopup} = useGlobalContext();
+  const { popup, setPopup } = useGlobalContext();
   const [title, setTittle] = useState("");
   const [content, setContent] = useState("");
   const [file, setPhoto] = useState<File>();
   const [fileName, setPhotoName] = useState<String | null>("");
 
-
-  
-
   window.onpopstate = (event) => {
-    setPopup(false)
+    setPopup(false);
     console.log(
-      `location: ${document.location}, state: ${JSON.stringify(event.state)}`,
+      `location: ${document.location}, state: ${JSON.stringify(event.state)}`
     );
   };
 
-
   const savePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
-
     if (!e.target.files) return;
     const file = e.target.files;
-  
-      console.log(file);
-      setPhoto(e.target.files[0]);
 
-      const filename = file[0].name
-      
-        setPhotoName(fileName);
-   
+    console.log(file);
+    setPhoto(e.target.files[0]);
+
+    const filename = file[0].name;
+
+    setPhotoName(fileName);
   };
 
-
-
-
-
-
-    const editorRef = useRef<TinyMCEEditor | null>(null);
-    const log = () => {
-
-   /*   if(title.length === 0 || content.length === 0){
+  const editorRef = useRef<TinyMCEEditor | null>(null);
+  const log = () => {
+    /*   if(title.length === 0 || content.length === 0){
 
         console.log("One of the fields is empty");
       
@@ -78,108 +60,104 @@ function CreateJournal() {
   
       }*/
 
-      
-        if (editorRef.current) {
-          let text = editorRef.current.getContent();
-          setContent(text);
+    if (editorRef.current) {
+      let text = editorRef.current.getContent();
+      setContent(text);
 
-
-            if(title.length === 0 || content.length === 0){
-
-                  console.log("One of the fields is empty");
-                
-                }else{
-                  setContentSaved(true)
-                  console.log(text);
-                }
-
-
-
-
-          
-        }
-        
-  
-     
-
-
-    
-     
+      if (title.length === 0 || content.length === 0) {
+        console.log("One of the fields is empty");
+      } else {
+        setContentSaved(true);
+        console.log(text);
+      }
     }
+  };
 
+  console.log(contentSaved);
 
-    console.log(contentSaved);
-    
+  //console.log(content);
 
-    //console.log(content);
-
-    const onChange = (e:any)=>{
+  const onChange = (e: any) => {
     //  console.log(e);
-      
-     // setContent(e)
+    // setContent(e)
+  };
 
-    }
-    
+  return (
+    <div className="create-journal">
+      <div className="create-journal-title">
+        <input
+          placeholder="Title"
+          onChange={(e) => {
+            setTittle(e.target.value);
+          }}
+        />
+      </div>
 
-    return <div  className="create-journal"  >
+      <form className="upload-picture">
+        Upload Journal Picture
+        <input type="file" onChange={savePhoto} />
+      </form>
 
-        <div className="create-journal-title" >
-            <input placeholder="Title"   onChange={(e)=>{setTittle(e.target.value)}}          />
-        </div>
-
-        <form className="upload-picture">
-              Upload Journal Picture
-              <input
-                type="file"
-                onChange={ savePhoto  }
-              />
-            </form>
-
-        <div>
+      <div>
         <Editor
-         onInit={(evt, editor) => editorRef.current = editor}
-         initialValue="<p>Welcome Mr Ted!! Happy writing</p>"
-         onEditorChange={onChange}
-         
-         init={{
-           height: 350,
-           menubar: false,
-           plugins: [
-             'advlist autolink lists link image charmap print preview anchor',
-             'searchreplace visualblocks code fullscreen',
-             'insertdatetime media table paste code help wordcount'
-           ],
-           toolbar: 'undo redo | formatselect | ' +
-           'bold italic backcolor | alignleft aligncenter ' +
-           'alignright alignjustify | bullist numlist outdent indent | ' +
-           'removeformat | help',
-           content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:14px }'
-           
-         }}
-       />
+          onInit={(evt, editor) => (editorRef.current = editor)}
+          initialValue="<p>Welcome Mr Ted!! Happy writing</p>"
+          onEditorChange={onChange}
+          init={{
+            height: 350,
+            menubar: false,
+            plugins: [
+              "advlist autolink lists link image charmap print preview anchor",
+              "searchreplace visualblocks code fullscreen",
+              "insertdatetime media table paste code help wordcount",
+            ],
+            toolbar:
+              "undo redo | formatselect | " +
+              "bold italic backcolor | alignleft aligncenter " +
+              "alignright alignjustify | bullist numlist outdent indent | " +
+              "removeformat | help",
+            content_style:
+              "body { font-family:Helvetica,Arial,sans-serif; font-size:14px }",
+          }}
+        />
 
-       {!contentSaved?    <button  className="create-journal-log-button" onClick={log}>Save Content</button>: ""  }
-      
-       
+        {!contentSaved ? (
+          <button className="create-journal-log-button" onClick={log}>
+            Save Content
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
 
-        </div>
+      <div className="create-journal-button">
+        {contentSaved ? (
+          <button
+            onClick={() => {
+              setPopup(true);
+            }}
+          >
+            Create Journal
+          </button>
+        ) : (
+          ""
+        )}
+      </div>
 
-        <div  className="create-journal-button" >
-      
-         {contentSaved?   <button onClick={()=>{setPopup(true)}} >Create Journal</button>: ""   }
-        </div>
-
-      
-        <PopUp title={title}
-                content={content}
-                 file={file} />  
-    
+      <PopUp
+        title={title}
+        content={content}
+        file={file}
+        /// id={journalId}
+        //   location={journalName}
+        successMessage={"Journal Created Successfully "}
+        loadingMessage={"Creating Journal..."}
+        actionMessage={"Create Journal?"}
+        errorMessage={"Error, something is wrong"}
+        function={postJournal}
+      />
     </div>
+  );
 }
 
-
-
-
-  export default CreateJournal;
-
-
+export default CreateJournal;

@@ -1,235 +1,99 @@
-import { NextResponse  } from "next/server";
+import { NextResponse } from "next/server";
 import connectDb from "@/app/utils/db";
 import Journals from "@/app/Models/Journals";
-import {  NextApiRequest ,  NextApiResponse  } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 
+/**Get all journals */
+export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+  try {
+    await connectDb();
 
+    const journals = await Journals.find();
 
+    return new NextResponse(
+      JSON.stringify({ journalsRetrieved: true, journals: journals }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({ journalsRetrieved: true, err: err })
+    );
+  }
+};
 
+/**Post a journal */
+export const POST = async (req: Request, res: any) => {
+  console.log("We are posting");
 
+  const body = await req.json();
 
+  console.log(body);
 
+  try {
+    // await connectDb();
 
+    const result = await Journals.create({
+      title: body.title,
+      journal: body.content,
+      imageName: "0",
+    });
 
+    return new NextResponse(
+      JSON.stringify({
+        journalPosted: true,
+        message: "Successfully posted",
+        id: result._id.toString(),
+      }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({
+        journalPosted: false,
+        err: err,
+      }),
+      { status: 500 }
+    );
+  }
+};
 
+/**Edit a journal */
+export const PUT = async (req: Request, res: any) => {
+  const body = await req.json();
 
-  
+  console.log(body);
 
+  try {
+    //await connectDb();
 
-export const GET = async (req: NextApiRequest, res: NextApiResponse) =>{
+    const result = await Journals.updateOne(
+      { _id: body.id },
 
-
- // const query = req.query
-
-  console.log("ALL JOURNALS");
-
-   
-
-    try{
-
-        await connectDb();
-
-        const journals  = await Journals.find(); 
-
-       //   console.log(journals);
-
-
-          return new NextResponse( JSON.stringify(journals), {status:200});
-
-
-    }catch(err){
-       
-        return new NextResponse("Database error", {status:500})
-       // console.log(err);
-        
-    }
-
-
-}
-
-
-
-
-
-
-export const POST = async (req:Request, res:any) =>{
-
-    
-
-    const body = await req.json();
-
-   
-
-
-
-   
-
-
-
-
-
-
-
-    if(body.method === "POST"){
-
-    
-      
-
-    
-
-      try{
-
-        await connectDb();
-
-       // const journals  = await Journals.find(); 
-
-       //   console.log(journals);
-
-       const result = await Journals.create({
+      {
         title: body.title,
-        journal:body.content,
-        imageName:"0"
-      });
-
-      console.log(result);
-      
-
-           // return res.send().json("POSTED SUCCESSFULLY");
-         // return new NextResponse("POSTED SUCCESSFULLY", {status:200});
-           return new NextResponse(JSON.stringify({journalPosted:true, message:"Successfully posted", id:result._id.toString()}), {status:200});
-
-
-    }catch(err){
-
-      console.log(err);
-      
-       
-        return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
-       // console.log(err);
-        
-    }
-
-
-
-
-    }
-
-
-
-
-    if(body.method === "DELETE"){
-
-      console.log(body);   
-
-
-      try{
-
-        await connectDb();
-
-       // const journals  = await Journals.find(); 
-
-       //   console.log(journals);
-
-    const result = await   Journals.deleteOne({
-        _id: body.id
-      });
-
-      console.log(result);
-      
-
-    return new NextResponse(JSON.stringify({result:result}), {status:200});
-      
-
-           // return res.send().json("POSTED SUCCESSFULLY");
-         // return new NextResponse("POSTED SUCCESSFULLY", {status:200});
-           
-
-
-    }catch(err){
-       
-        return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
-       // console.log(err);
-        
-    }
-
-
-    }
-
-
-
-    if(body.method === "PUT"){
-
-      console.log("PUT TIME");
-
-      try{
-
-
-        await connectDb();
-
-        // const journals  = await Journals.find(); 
- 
-        //   console.log(journals);
- 
-        const result = await Journals.updateOne(
-          { _id:body.id },
-          {
-         title: body.title,
-         journal:body.content
-       });
- 
-       console.log(result);
-       
-       return new NextResponse(JSON.stringify({journalEdited:true, message:"Successfully Edited"}), {status:200});
-
-
-      }catch(err){
-        return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
-
+        journal: body.content,
+        imageName: "0",
       }
-      
+    );
 
-     
+    console.log(result);
 
-    }
-    
+    return new NextResponse(
+      JSON.stringify({
+        journalEdited: true,
+        message: "Successfully Updated",
+      }),
+      { status: 200 }
+    );
+  } catch (err) {
+    console.log(err);
 
-   
-
-  
-
-
-} 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return new NextResponse(
+      JSON.stringify({
+        journalEdited: false,
+        err: err,
+      }),
+      { status: 500 }
+    );
+  }
+};

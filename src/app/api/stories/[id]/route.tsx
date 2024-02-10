@@ -1,100 +1,67 @@
-
 import connectDb from "@/app/utils/db";
-import { NextApiRequest,NextApiResponse } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 import Stories from "@/app/Models/Stories";
 import { NextResponse } from "next/server";
 
-
-
-
-export const DELETE = async (req: NextApiRequest, res: NextApiResponse) =>{
-
-
-    // const query = req.query
-   
-     console.log("ONE STORIES");
-   
-      
-   
-       try{
-   
-           await connectDb();
-   
-           const journals  = await Stories.find(); 
-   
-          //   console.log(journals);
-   
-   
-             return new NextResponse( JSON.stringify(journals), {status:200});
-   
-   
-       }catch(err){
-          
-           return new NextResponse("Database error", {status:500})
-          // console.log(err);
-           
-       }
-   
-   
-   }
-
-
-
-
-
-
-   //POST is used as GET here due to a bug in NEXT JS
-export const POST = async (req:Request, res: NextApiResponse) =>{
-    console.log("ONE STORY");
-
-    const body = await req.json();
-
-   // console.log(body);             
-    
-
-    console.log("ONE STORY");
- //   console.log(query);
-    
-   // const {journalId} = query;
-
-  //  console.log(journalId);
-    
-    
-
-
-   
-
-    try{
-
-        await connectDb();
-
-       // const journals  = await Journals.find(); 
-
-       //   console.log(journals);
-
-
-       const Story = await   Stories.find({
-        _id: body.id
-      });
-
-      console.log(Story);
-
-
-          return new NextResponse( JSON.stringify(Story), {status:200});
-
-
-    }catch(err){
-       
-        return new NextResponse("Database error", {status:500})
-       // console.log(err);
-        
-    }
-
-
+interface params {
+  params: { id: string };
 }
 
+/**Get Story by id */
+export const GET = async (
+  req: Request,
+  { params }: params,
+  res: NextApiResponse
+) => {
+  try {
+    //await connectDb();
 
+    const story = await Stories.find({
+      _id: params.id,
+    });
 
+    return new NextResponse(
+      JSON.stringify({ storyRetrieved: true, story: story }),
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({ storyRetrieved: true, err: err }),
+      { status: 500 }
+    );
+  }
+};
 
+/**Delete story by id */
+export const DELETE = async (
+  req: NextApiRequest,
+  { params }: params,
+  res: NextApiResponse
+) => {
+  console.log("ONE STORIES");
 
-   
+  try {
+    // await connectDb();
+
+    const result = await Stories.deleteOne({
+      _id: params.id,
+    });
+
+    console.log(result);
+
+    return new NextResponse(
+      JSON.stringify({ storyDeleted: true, result: result }),
+      { status: 200 }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({
+        storyDeleted: false,
+        err: err,
+      }),
+      { status: 500 }
+    );
+  }
+};

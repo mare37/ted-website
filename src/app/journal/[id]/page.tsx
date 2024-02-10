@@ -20,10 +20,10 @@ function JournalPost(){
         console.log(params);
         
         getOneJournal(params.id).then((response)=>{
-         console.log(response);
-         setTitle(response[0].title)
-         setImageName(response[0].imageName)
-         setContent(response[0].journal);
+         console.log(response.journal);
+         setTitle(response.journal[0].title)
+         setImageName(response.journal[0].imageName)
+         setContent(response.journal[0].journal);
          
        })
   
