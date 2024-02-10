@@ -1,60 +1,69 @@
-import { NextResponse  } from "next/server";
+import { NextResponse } from "next/server";
 import connectDb from "@/app/utils/db";
 import Journals from "@/app/Models/Journals";
-//import Journal from "@/app/dashboard/journal/page";
-//import { DummyDocument } from "@/app/Models/Journals";
-import { NextApiRequest ,  NextApiResponse  } from "next";
-import { ObjectId } from "mongoose";
+import { NextApiRequest, NextApiResponse } from "next";
 
-
-
-
-//POST is used as GET here due to a bug in NEXT JS
-export const POST = async (req:Request, res: NextApiResponse) =>{
-
-
-    const body = await req.json();
-
-    console.log(body);
-    
-
-    console.log("ONE JOURNALS");
- //   console.log(query);
-    
-   // const {journalId} = query;
-
-  //  console.log(journalId);
-    
-    
-
-
-   
-
-    try{
-
-        await connectDb();
-
-       // const journals  = await Journals.find(); 
-
-       //   console.log(journals);
-
-
-       const journal = await   Journals.find({
-        _id: body.id
-      });
-
-      console.log(journal);
-
-
-          return new NextResponse( JSON.stringify(journal), {status:200});
-
-
-    }catch(err){
-       
-        return new NextResponse("Database error", {status:500})
-       // console.log(err);
-        
-    }
-
-
+interface params {
+  params: { id: string };
 }
+
+/**Get one specific journal by id */
+export const GET = async (
+  req: Request,
+  { params }: params,
+  res: NextApiResponse
+) => {
+  try {
+    await connectDb();
+
+    const journal = await Journals.find({
+      _id: params.id,
+    });
+
+    console.log(journal);
+
+    return new NextResponse(
+      JSON.stringify({ journalRetrieved: true, journal: journal }),
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({ journalRetrieved: false, err: err }),
+      { status: 500 }
+    );
+  }
+};
+
+/**Delete a specific journal by id */
+export const DELETE = async (
+  req: Request,
+  { params }: params,
+  res: NextApiResponse
+) => {
+  try {
+    await connectDb();
+
+    const result = await Journals.deleteOne({
+      _id: params.id,
+    });
+
+    console.log(result);
+
+    return new NextResponse(
+      JSON.stringify({ journalDeleted: true, result: result }),
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({
+        journalDeleted: false,
+        message: "Server Error.Unable to post journal",
+      }),
+      { status: 500 }
+    );
+  }
+};

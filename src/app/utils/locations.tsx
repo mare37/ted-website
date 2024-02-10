@@ -71,12 +71,7 @@ export const getLocations = async ()=>{
       const res = await fetch("http://localhost:3000/api/locations", {cache :"no-store"});
       return res.json();
 
-      if(!res.ok){
-      //  setIsLoading(false);
-     //   setError(true)
-         throw new Error("Error")
-          
-      }
+    
 
 
      }catch(error){
@@ -95,9 +90,7 @@ export const getLocations = async ()=>{
    
     
    
-    //const data =  await res.json();
-
-   // console.log(data);
+   
 
     
 
@@ -135,7 +128,7 @@ export const getOneLocation = async (id:string)=>{
   // setError(true)
    console.log(error);
    
-   throw new Error("Error")
+   
 
    
  
@@ -145,9 +138,7 @@ export const getOneLocation = async (id:string)=>{
 
  
 
- //const data =  await res.json();
-
-// console.log(data);
+ 
 
  
 

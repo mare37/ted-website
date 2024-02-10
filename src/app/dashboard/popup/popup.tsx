@@ -72,28 +72,6 @@ function PopUp(props: any) {
       console.log(response);
 
       Upload(props.file, response.response.id, "locationUpload");
-
-      /*   const formData = new FormData();
-          const file = props.file
-
-          if (!file) return;
-          console.log(file);
-          
-          formData.append("file", file);
-          formData.append("id", response.response.id);
-         formData.append("fileName", file.name);
-         formData.append("identity", "locationUpload");
-
-          const res1 = await fetch("http://localhost:3000/api/upload", {
-            method: 'POST',
-          
-            body: formData 
-          })
-    
-          
-          const response1 =  await res1.json() 
-        
-        console.log(response1);*/
     }
 
     if (props.function.name === "deleteLocation") {

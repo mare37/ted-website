@@ -4,7 +4,7 @@
 
 const Upload = async (file:File, id:string,identity:string)=>{
 
-    console.log(identity);
+    console.log(identity); 
     
 
      const formData = new FormData();
@@ -27,7 +27,7 @@ const Upload = async (file:File, id:string,identity:string)=>{
           
           const response1 =  await res1.json() 
         
-        console.log(response1);
+        console.log(response1); 
 
 
 }

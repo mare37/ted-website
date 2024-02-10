@@ -38,6 +38,8 @@ function Sidebar(){
 
     const {sidebar,setSidebar} = useGlobalContext();
     const width = useWindowWide();
+
+    const [settingsBar, SetSettingsBar] = useState(false)
     const [dashboard, Setdashboard] = useState(pathname === "/dashboard"? true:false);
     const [journals, SetJournal] = useState(pathname === "/dashboard/journal"? true:false);
     const [stories, SetStories] = useState(pathname === "/dashboard/stories"? true:false);
@@ -67,6 +69,9 @@ function Sidebar(){
 
 
     }
+
+    console.log(settingsBar);
+    
     
 
     return <div className={sidebar ? "sidebar": "sidebar remove-sidebar"}   >
@@ -96,8 +101,20 @@ function Sidebar(){
                 <p  className={ourLocations? "sidebar-link active": "sidebar-link"} 
                        ><Link    onClick={handleClick}  href={"/dashboard/locations"}>Our Locations</Link>   </p>
 
-                <p  className={settings? "sidebar-link active": "sidebar-link"} 
-                       ><Link    onClick={handleClick}  href={"/settings"}>Settings</Link>   </p>
+
+                <section   className="sidebar-settings">
+                <p  className={settings? "sidebar-link-settings active": "sidebar-link-settings"} 
+                     onClick={()=>{SetSettingsBar((prev)=>{return !prev})}}    >Settings</p>
+
+                    <section   className={settingsBar?"sidebar-settings-section":"sidebar-settings-section remove"}      >
+                        <p><Link    onClick={handleClick}  href={"/dashboard/updatewebsite"}>Update Website</Link></p>
+                        <p>Change password</p>
+                    </section>
+
+                </section>
+                
+
+                    
 
        
 

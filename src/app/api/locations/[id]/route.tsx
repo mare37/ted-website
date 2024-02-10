@@ -1,98 +1,74 @@
-import { NextResponse  } from "next/server";
+import { NextResponse } from "next/server";
 import connectDb from "@/app/utils/db";
 import locations from "@/app/Models/locations";
-import {  NextApiRequest ,  NextApiResponse  } from "next";
+import { NextApiRequest, NextApiResponse } from "next";
 
-
-
-
-
-interface ExtendedNextApiRequest extends NextApiRequest {
-  params: {
-    id: string;
-  };
+interface params {
+  params: { id: string };
 }
 
-interface params{
-  params: { id: string } 
+/**Delete a location by id */
+export const DELETE = async (
+  req: NextApiRequest,
+  { params }: params,
+  res: NextApiResponse
+) => {
+  const id = params.id;
 
-}
+  try {
+    await connectDb();
 
-export const DELETE = async (req: NextApiRequest,
-           { params }: params ,res: NextApiResponse) =>{
+    const result = await locations.deleteOne({
+      _id: id,
+    });
 
-  
-              const id = params.id
+    return new NextResponse(
+      JSON.stringify({ locationDeleted: true, result: result }),
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({
+        locationDeleted: false,
+        err: err,
+      }),
+      { status: 500 }
+    );
+  }
+};
 
-              console.log(id);
-              
-  
-               try{
-  
-                  await connectDb();
-  
-              const result = await   locations.deleteOne({
-                  _id:id
-                });
-  
-                console.log(result);
-                
-  
-              return new NextResponse(JSON.stringify({result:result}), {status:200});
-  
-  
-              }catch(err){
-                
-                  return new NextResponse(JSON.stringify({journalPosted:false, message:"Server Error.Unable to post journal"}), {status:500});
-                  
-              }
-  
-   
-   }
+/**Get one specific location by id */
+export const GET = async (
+  req: NextApiRequest,
+  { params }: params,
+  res: NextApiResponse
+) => {
+  const id = params.id;
 
+  console.log(id);
 
+  try {
+    await connectDb();
 
+    const result = await locations.findOne({ _id: id });
 
+    console.log(result);
 
-
-   export const GET = async (req: NextApiRequest,
-    { params }: params ,res: NextApiResponse) =>{
-
-
-       const id = params.id
-
-       console.log(id);
-       
-
-        try{
-
-           await connectDb();
-
-       const result = await   locations.findOne({_id:id});
-
-         console.log(result);
-         
-
-       return new NextResponse(JSON.stringify({result:result}), {status:200});
-
-
-       }catch(err){
-         
-           return new NextResponse(JSON.stringify({locationFound:false, message:"Server Error.Unable to post journal"}), {status:500});
-           
-       }
-
-
-}
-
-
-
-
-
-
-
-   
-
-
-  
-  
+    return new NextResponse(
+      JSON.stringify({ locationFound: true, result: result }),
+      {
+        status: 200,
+      }
+    );
+  } catch (err) {
+    return new NextResponse(
+      JSON.stringify({
+        locationFound: false,
+        err: err,
+      }),
+      { status: 500 }
+    );
+  }
+};

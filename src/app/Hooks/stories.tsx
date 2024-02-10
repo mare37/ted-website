@@ -87,7 +87,7 @@ const usePost = () => {
         
             const data = await res.json();
             console.log(data);
-            console.log(data.result.acknowledged);
+           
             
            // setJournalId(true)
             //location.reload() 
