@@ -53,6 +53,11 @@ yarn dev
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 
+##Screen shots
+
+![Screenshot (15)](https://github.com/mare37/ted-website/assets/83783345/c6675eaf-9bbe-4b42-bbbf-d015cac26d66)
+
+
 
 
 ## Learn More
