@@ -1,7 +1,7 @@
 'use client'
 
 import { useState,useEffect } from "react";
-import { getOneStoryData } from "@/app/utils/stories";
+import { getOneStory } from "@/app/utils/stories";
 import { useParams } from "next/navigation";
 import Hero2 from "@/app/get-involved/Hero/Hero";
 
@@ -19,7 +19,7 @@ function Story(){
     
         console.log(param.id);
         
-        getOneStoryData(param.id).then((response)=>{
+        getOneStory(param.id).then((response)=>{
           console.log(response);
           setImageName(response[0].imageName)
           setTitle(response[0].title)
