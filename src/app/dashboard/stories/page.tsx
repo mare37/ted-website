@@ -5,10 +5,8 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
-import StoriesTableItem from "../components/StoriesTableItem/StoriesTableItem";
 import { useGlobalContext } from "@/app/context/store";
 import { useGetStories } from "@/app/Hooks/stories";
-import { usePost } from "@/app/Hooks/stories";
 import { deleteStory } from "@/app/utils/stories";
 import { ObjectId } from "mongoose";
 //import PopUp from "./popup/popup";
@@ -24,13 +22,13 @@ interface Story {
 function Stories() {
   const { sidebar, setSidebar, setPopup } = useGlobalContext();
 
-  const { getData, isLoading, setIsLoading, stories, setStories } =
+  const { getData, setIsLoading, stories, setStories } =
     useGetStories();
 
   const [storyId, setStoryId] = useState("");
   const [storyTitle, setStoryName] = useState("");
 
-  let counter = 1;
+
 
   const getDataInfo = async () => {
     let data = await getData();

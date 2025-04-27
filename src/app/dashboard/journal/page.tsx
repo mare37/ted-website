@@ -9,10 +9,9 @@ import { ObjectId } from "mongoose";
 import PopUp from "../popup/popup";
 import { deleteJournal } from "@/app/utils/journal";
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
-import JournalsTableItem from "../components/JournalsTableItem/JournalsTableItem";
 import { useGlobalContext } from "@/app/context/store";
 import { useEffect, useState } from "react";
-import JournalItem from "@/app/journal/JournalItem/JournalItem";
+
 
 interface Journal {
   _id: ObjectId;
@@ -41,11 +40,7 @@ function Journal() {
       });
       return res.json();
 
-      if (!res.ok) {
-        setIsLoading(false);
-        setError(true);
-        throw new Error("Error");
-      }
+      
     } catch (error) {
       setIsLoading(false);
       setError(true);

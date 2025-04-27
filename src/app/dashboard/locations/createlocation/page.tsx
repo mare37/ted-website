@@ -1,17 +1,16 @@
 "use client";
 
-import { useRef, useState } from "react";
+import {  useState } from "react";
 import "./page.modules.css";
-import { Editor } from "@tinymce/tinymce-react";
-import { Editor as TinyMCEEditor } from "tinymce";
+
 import PopUp from "../../popup/popup";
 import { useGlobalContext } from "@/app/context/store";
-import { FILE } from "dns";
+
 import { postLocation } from "@/app/utils/locations";
 
 function CreateLocation() {
-  const [contentSaved, setContentSaved] = useState(false);
-  const { popup, setPopup } = useGlobalContext();
+ 
+  const { setPopup } = useGlobalContext();
   const [town, setTown] = useState("");
   const [county, setCounty] = useState("");
   const [description, setDescription] = useState("");
@@ -34,7 +33,7 @@ function CreateLocation() {
     console.log(file);
     setPhoto(e.target.files[0]);
 
-    const filename = file[0].name;
+    
 
     setPhotoName(fileName);
   };

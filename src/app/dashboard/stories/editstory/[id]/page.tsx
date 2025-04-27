@@ -34,7 +34,6 @@ function EditStory() {
   const { popup, setPopup, setCreateStory, setError, setIsLoading, storyId } =
     useGlobalContext();
 
-  const { EditStory, getOneStoryData } = usePost();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [tag, setTag] = useState("");

@@ -11,32 +11,27 @@ import PopUp from "../../popup/popup";
 
 import { postJournal } from "@/app/utils/journal";
 import { useGlobalContext } from "@/app/context/store";
-import { FILE } from "dns";
+
 
 export async function POST() {
-  const res = await fetch("http://localhost:3000/api/journals", {
+ /* const res = await fetch("http://localhost:3000/api/journals", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({ time: new Date().toISOString() }),
-  });
+  });*/
 }
 
 function CreateJournal() {
   const [contentSaved, setContentSaved] = useState(false);
-  const { popup, setPopup } = useGlobalContext();
+
   const [title, setTittle] = useState("");
   const [content, setContent] = useState("");
   const [file, setPhoto] = useState<File>();
   const [fileName, setPhotoName] = useState<String | null>("");
 
-  window.onpopstate = (event) => {
-    setPopup(false);
-    console.log(
-      `location: ${document.location}, state: ${JSON.stringify(event.state)}`
-    );
-  };
+
 
   const savePhoto = (e: React.ChangeEvent<HTMLInputElement>) => {
     if (!e.target.files) return;
@@ -133,9 +128,7 @@ function CreateJournal() {
       <div className="create-journal-button">
         {contentSaved ? (
           <button
-            onClick={() => {
-              setPopup(true);
-            }}
+         
           >
             Create Journal
           </button>

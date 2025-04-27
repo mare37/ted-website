@@ -20,14 +20,14 @@ interface Story {
 
 
 
-function StoriesTableItem({ id,tag, title,story}:Story){
+function StoriesTableItem({ id,tag, title}:Story){
 
   const router = useRouter()
 
  // console.log(id);
   
 
-    const {popup,setPopup, journalId, setJournalId,journalTitle, setJournalTitle,storyId, setStoryId,storyTitle, setStoryTitle } = useGlobalContext();
+    const {setPopup, setStoryId, setStoryTitle } = useGlobalContext();
 
     return  <div className="table-item"  >
                 <span   onClick={()=>{router.push(`/impact/${id}`)}}      className="table-item-title">{title}</span>

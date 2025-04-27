@@ -1,6 +1,6 @@
 import "./JournalsTableItem.modules.css"
 import { ObjectId } from "mongoose";
-import { useEffect, useState } from "react";
+import { useEffect} from "react";
 import { useGlobalContext } from "@/app/context/store";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
@@ -21,16 +21,16 @@ interface Journal {
 
 
 
-function JournalsTableItem ({no ,id, title,journal}: Journal){
+function JournalsTableItem ({no ,id, title}: Journal){
 
   const router = useRouter();
 
 
  // const [journalId , setJournalId] = useState(false)
-  const {popup,setPopup, journalId, setJournalId,journalTitle, setJournalTitle} = useGlobalContext();
+  const {setPopup, journalId, setJournalId, setJournalTitle} = useGlobalContext();
 
 
-  async function deleteJournal  (id:ObjectId){  
+  /*async function deleteJournal  (id:ObjectId){  
    // setJournalId(false)
     console.log(id);
     
@@ -69,7 +69,7 @@ function JournalsTableItem ({no ,id, title,journal}: Journal){
    
 
 
-}
+}*/
 
 
 useEffect(()=>{

@@ -9,15 +9,7 @@ import { usePost } from "@/app/Hooks/stories";
 import { determinePath } from "./determinepath";
 import Upload from "@/app/utils/upload";
 
-interface Journal {
-  title: string;
-  tag: string;
-  content: string;
-  successMessage: string;
-  loadingMessage: string;
-  actionMessage: string;
-  errorMessage: string;
-}
+
 
 function PopUp(props: any) {
   const router = useRouter();

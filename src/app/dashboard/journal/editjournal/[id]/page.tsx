@@ -28,7 +28,7 @@ export async function getData(id: string) {
 function EditJournal() {
   const params = useParams();
   const [contentSaved, setContentSaved] = useState(false);
-  const { popup, setPopup, journalId } = useGlobalContext();
+  const {  setPopup } = useGlobalContext();
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
 

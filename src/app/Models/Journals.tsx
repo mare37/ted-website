@@ -1,16 +1,12 @@
-
 import mongoose from "mongoose";
 
-const {Schema} = mongoose;
-
+const { Schema } = mongoose;
 
 interface Journal {
-    title: string;
-    journal: string;
-    imageName:string
-   
-  }
-
+  title: string;
+  journal: string;
+  imageName: string;
+}
 
 /*export interface DummyDocument extends  Journal, mongoose.Document {
     createdAt: Date;
@@ -18,28 +14,24 @@ interface Journal {
     _doc?: any
   }*/
 
-const journalsSchema = new Schema<Journal>({
-    title:{
-        type:String,
-        unique:true,
-        required:true
+const journalsSchema = new Schema<Journal>(
+  {
+    title: {
+      type: String,
+      unique: true,
+      required: true,
     },
 
-    journal:{
-        type:String,
-        required:true
+    journal: {
+      type: String,
+      required: true,
     },
-    imageName:{
-      type:String,
-      
-     
-      
+    imageName: {
+      type: String,
+    },
   },
+  { timestamps: true }
+);
 
-
-
-}, {timestamps:true}
-)
-
-
-export default mongoose.models.Journal ||  mongoose.model<Journal>("Journal", journalsSchema );
+export default mongoose.models.Journal ||
+  mongoose.model<Journal>("Journal", journalsSchema);

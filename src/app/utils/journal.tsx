@@ -1,8 +1,4 @@
-interface Journal {
-  title: string;
-  content: string;
-  file?: File;
-}
+
 
 export const getJournals = async () => {
   try {

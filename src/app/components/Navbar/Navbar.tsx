@@ -1,7 +1,7 @@
 "use client"
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { usePathname, useSearchParams } from 'next/navigation'
+import { usePathname } from 'next/navigation'
 import image  from "../../assets/humburger-icon.png"
 import  "./Navbar.modules.css"
 
@@ -38,7 +38,7 @@ const links = [
 function Navbar (){
 
     const [clicked, setClicked] = useState(false);
-    const [pathHome, setPathHome] = useState(false);
+   
     let [headerScrollClass, setHeaderScrollClass] = useState(false);
 
     
@@ -88,9 +88,9 @@ function Navbar (){
         if( pathname === "/"){
 
             console.log(pathname);
-            setPathHome(true)  
+          
         }else{
-            setPathHome(false) 
+           
         }
     
         
