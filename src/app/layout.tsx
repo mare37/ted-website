@@ -4,9 +4,9 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Navbar from "./components/Navbar/Navbar";
 import Footer from "./components/Footer/Footer";
-import { usePathname } from "next/navigation";
+
 import { GlobalContextProvider } from "./context/store";
-import { useGlobalContext } from "./context/store";
+
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -20,105 +20,20 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const path = usePathname();
 
-  console.log(path);
 
-  switch (path) {
-    case "/dashboard":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
 
-    case "/dashboard/journal":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/journal/createjournal":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/stories":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/stories/createstory":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/locations":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/locations/createlocation":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/locations/editlocation":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    case "/dashboard/updatewebsite":
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>{children}</GlobalContextProvider>
-          </body>
-        </html>
-      );
-
-    default:
-      return (
-        <html lang="en">
-          <body className={inter.className}>
-            <GlobalContextProvider>
-              <Navbar />
-              {children}
-              <Footer />
-            </GlobalContextProvider>
-          </body>
-        </html>
-      );
-  }
+  return (
+    <html lang="en">
+      <body className={inter.className}>
+        <GlobalContextProvider>
+          <Navbar />
+          {children}
+          <Footer />
+        </GlobalContextProvider>
+      </body>
+    </html>
+  );
 
   /* if( path === '/dashboard/journal'){
       return (
