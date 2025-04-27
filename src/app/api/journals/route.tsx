@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import connectDb from "@/app/utils/db";
 import Journals from "@/app/Models/Journals";
-import { NextApiRequest, NextApiResponse } from "next";
+
 
 /**Get all journals */
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async () => {
   try {
     await connectDb();
 

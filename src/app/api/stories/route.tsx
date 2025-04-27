@@ -1,10 +1,10 @@
 import { NextResponse } from "next/server";
 import Stories from "@/app/Models/Stories";
 import connectDb from "@/app/utils/db";
-import { NextApiRequest, NextApiResponse } from "next";
+
 
 /**Get all stories */
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async () => {
   try {
     //  await connectDb();
 

@@ -10,7 +10,7 @@ import { Editor as TinyMCEEditor } from "tinymce";
 import PopUp from "../../popup/popup";
 
 import { postJournal } from "@/app/utils/journal";
-import { useGlobalContext } from "@/app/context/store";
+
 
 
 export async function POST() {

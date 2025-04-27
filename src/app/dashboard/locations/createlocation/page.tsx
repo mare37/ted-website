@@ -1,6 +1,6 @@
 "use client";
 
-import {  useState } from "react";
+/*import {  useState } from "react";
 import "./page.modules.css";
 
 import PopUp from "../../popup/popup";
@@ -38,20 +38,7 @@ function CreateLocation() {
     setPhotoName(fileName);
   };
 
-  /*   const log = () => {
-
-   
-            if(title.length === 0 || content.length === 0){
-
-                  console.log("One of the fields is empty");
-                
-                }else{
-                 
-                }
-
-
-     
-    }*/
+ 
 
   if (description.length === 200) {
   }
@@ -131,4 +118,13 @@ function CreateLocation() {
   );
 }
 
-export default CreateLocation;
+export default CreateLocation;*/
+
+const CreateLocation = ()=>{
+
+
+
+  return (<div>create location</div>)
+}
+
+export default CreateLocation

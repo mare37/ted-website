@@ -1,73 +1,52 @@
 import { NextResponse } from "next/server";
+import { ObjectId } from "mongodb"; // important
 import connectDb from "@/app/utils/db";
 import locations from "@/app/Models/locations";
-import { NextApiRequest, NextApiResponse } from "next";
 
-interface params {
+/*interface ParamsType {
   params: { id: string };
-}
+}*/
 
-/**Delete a location by id */
-export const DELETE = async (
-  req: NextApiRequest,
-  { params }: params,
-  res: NextApiResponse
-) => {
+
+export const DELETE = async ({ params }: any) => {
   const id = params.id;
 
   try {
     await connectDb();
 
     const result = await locations.deleteOne({
-      _id: id,
+      _id: new ObjectId(id),
     });
 
     return new NextResponse(
-      JSON.stringify({ locationDeleted: true, result: result }),
-      {
-        status: 200,
-      }
+      JSON.stringify({ locationDeleted: true, result }),
+      { status: 200 }
     );
-  } catch (err) {
+  } catch (err: any) {
     return new NextResponse(
-      JSON.stringify({
-        locationDeleted: false,
-        err: err,
-      }),
+      JSON.stringify({ locationDeleted: false, error: err.message }),
       { status: 500 }
     );
   }
 };
 
-/**Get one specific location by id */
-export const GET = async (
-  req: NextApiRequest,
-  { params }: params,
-  res: NextApiResponse
-) => {
+export const GET = async ({ params }: any) => {
   const id = params.id;
-
-  console.log(id);
 
   try {
     await connectDb();
 
-    const result = await locations.findOne({ _id: id });
-
-    console.log(result);
+    const result = await locations.findOne({
+      _id: new ObjectId(id),
+    });
 
     return new NextResponse(
-      JSON.stringify({ locationFound: true, result: result }),
-      {
-        status: 200,
-      }
+      JSON.stringify({ locationFound: true, result }),
+      { status: 200 }
     );
-  } catch (err) {
+  } catch (err: any) {
     return new NextResponse(
-      JSON.stringify({
-        locationFound: false,
-        err: err,
-      }),
+      JSON.stringify({ locationFound: false, error: err.message }),
       { status: 500 }
     );
   }

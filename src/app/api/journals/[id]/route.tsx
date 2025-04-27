@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import connectDb from "@/app/utils/db";
 import Journals from "@/app/Models/Journals";
-import { NextApiRequest, NextApiResponse } from "next";
+
 
 interface params {
   params: { id: string };
@@ -9,9 +9,9 @@ interface params {
 
 /**Get one specific journal by id */
 export const GET = async (
-  req: Request,
+
   { params }: params,
-  res: NextApiResponse
+ 
 ) => {
   try {
     await connectDb();
@@ -38,9 +38,9 @@ export const GET = async (
 
 /**Delete a specific journal by id */
 export const DELETE = async (
-  req: Request,
+
   { params }: params,
-  res: NextApiResponse
+
 ) => {
   try {
     await connectDb();

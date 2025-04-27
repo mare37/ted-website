@@ -41,7 +41,7 @@ function JournalPost(){
             <section  className="journal-post-heading-text"  >
             <div>{title}</div>
 
-                <p>By Teddy Ochieng'</p>
+                <p>{"By Teddy Ochieng"}</p>
 
             </section>
 

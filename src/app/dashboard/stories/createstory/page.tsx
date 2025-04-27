@@ -1,5 +1,5 @@
 "use client";
-
+/*
 import { useEffect, useRef, useState } from "react";
 import "./page.modules.css";
 import { Editor } from "@tinymce/tinymce-react";
@@ -41,7 +41,7 @@ function CreateStory() {
     console.log(file);
     setPhoto(e.target.files[0]);
 
-    const filename = file[0].name;
+    
 
     setPhotoName(fileName);
   };
@@ -159,6 +159,18 @@ function CreateStory() {
       />
     </div>
   );
+}
+
+export default CreateStory;*/
+
+
+
+const CreateStory = ()=>{
+
+
+  return(
+    <div></div>
+  )
 }
 
 export default CreateStory;

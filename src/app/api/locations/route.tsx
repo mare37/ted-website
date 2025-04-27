@@ -1,10 +1,9 @@
 import { NextResponse } from "next/server";
 import connectDb from "@/app/utils/db";
 import locations from "@/app/Models/locations";
-import { NextApiRequest, NextApiResponse } from "next";
 
 /*Get all locations*/
-export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
+export const GET = async () => {
   try {
     await connectDb();
 
@@ -17,7 +16,7 @@ export const GET = async (req: NextApiRequest, res: NextApiResponse) => {
 };
 
 /*Post a location */
-export const POST = async (req: Request, res: any) => {
+export const POST = async (req: Request) => {
   const body = await req.json();
 
   console.log(body);
@@ -58,7 +57,7 @@ export const POST = async (req: Request, res: any) => {
 };
 
 /**Edit a specific location */
-export const PUT = async (req: Request, res: NextApiResponse) => {
+export const PUT = async (req: Request) => {
   const body = await req.json();
 
   console.log(body);
