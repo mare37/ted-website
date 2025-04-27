@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import Sidebar from "@/app/portal_components/Sidebar/Sidebar";
 import { useGlobalContext } from "@/app/context/store";
 import Link from "next/link";
+
 import "./page.modules.css";
 import { useRouter } from "next/navigation";
 import { getLocations } from "@/app/utils/locations";
